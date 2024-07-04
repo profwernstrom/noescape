@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+.header {
+  height: 64px;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.main {
+  display: flex;
+  height: calc(100vh - 64px);
+}
+
+.sidebar {
+  width: 400px;
+  background-color: #ddd;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.map {
+  flex-grow: 1;
+  background-color: #bbb;
+  padding: 10px;
+}
+
+.footer {
+  height: 64px;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+form {
+  flex: 0 0 auto;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+table, th, td {
+  border: 0;
+}
+
+th, td {
+  padding: 5px;
+}
