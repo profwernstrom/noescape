@@ -1,3 +1,27 @@
+// Initialize and add the map
+let map;
+
+async function initMap() {
+  const position = {lat: 48.50, lng: 28.00};
+  // Request needed libraries.
+  //@ts-ignore
+  const {Map} = await google.maps.importLibrary("maps");
+  const {AdvancedMarkerElement} = await google.maps.importLibrary("marker");
+
+  // The map, centered at Uluru
+  map = new Map(document.getElementById("map"), {
+    zoom: 7,
+    center: position,
+    mapId: "DEMO_MAP_ID",
+  });
+
+  new AdvancedMarkerElement({
+    map: map,
+    position: position,
+    title: "Demo marker",
+  });
+}
+
 function loadData() {
   fetch('data.txt')
     .then(r => r.text())
@@ -76,6 +100,7 @@ function toggleSortDirection() {
   document.sortDirection = document.sortDirection === 'desc' ? 'asc' : 'desc';
 }
 
+initMap();
 loadData();
 
 document.getElementById('th-borderSign').onclick = function () {
