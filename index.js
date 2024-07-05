@@ -32,6 +32,17 @@ function loadData() {
     })
 }
 
+function loadBorderSigns() {
+  fetch('signs.txt')
+    .then(r => r.text())
+    .then(tsv => tsv.trim().split('\n').map(line => line.split('\t')))
+    .then(data => {
+      document.borderSigns = {};
+      data.forEach(values => document.borderSigns[values[0]] = {lat: values[1], lng: values[2]});
+      console.log(document.borderSigns);
+    })
+}
+
 function createTableRow(values) {
   const tr = document.createElement('tr');
   tr.id = values[0];
@@ -102,6 +113,7 @@ function toggleSortDirection() {
 
 initMap();
 loadData();
+loadBorderSigns();
 
 document.getElementById('th-borderSign').onclick = function () {
   if (document.sortColumn === 1) {
