@@ -1,71 +1,87 @@
 // Initialize and add the map
 let map;
+let addMarker;
+let selectedBorderSign
 
 async function initMap() {
-  const position = {lat: 48.50, lng: 28.00};
-  // Request needed libraries.
-  //@ts-ignore
   const {Map} = await google.maps.importLibrary("maps");
   const {AdvancedMarkerElement} = await google.maps.importLibrary("marker");
 
-  // The map, centered at Uluru
   map = new Map(document.getElementById("map"), {
     zoom: 7,
-    center: position,
+    center: {lat: 48.50, lng: 28.00},
     mapId: "DEMO_MAP_ID",
   });
 
-  new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Demo marker",
-  });
+  addMarker = (title, position) => {
+    return new AdvancedMarkerElement({
+      map: map,
+      position: position,
+      title: title,
+    });
+  }
 }
 
 function loadData() {
-  fetch('data.txt')
+  return fetch('data.txt')
     .then(r => r.text())
     .then(tsv => parseData(tsv))
     .then(data => {
       document.data = data;
-      showData()
     })
 }
 
 function loadBorderSigns() {
-  fetch('signs.txt')
+  return fetch('signs.txt')
     .then(r => r.text())
     .then(tsv => tsv.trim().split('\n').map(line => line.split('\t')))
     .then(data => {
       document.borderSigns = {};
-      data.forEach(values => document.borderSigns[values[0]] = {lat: values[1], lng: values[2]});
+      data.forEach(values => document.borderSigns[values[0]] = {lat: parseFloat(values[1]), lng: parseFloat(values[2])});
       console.log(document.borderSigns);
     })
 }
 
+function addBorderSignMarker(title) {
+  if (selectedBorderSign) {
+    selectedBorderSign.setMap(null);
+  }
+  selectedBorderSign = addMarker(title, document.borderSigns[title]);
+}
+
 function createTableRow(values) {
+  const caseNumber = values[0];
+  const borderSign = values[1];
+  const arrestDate = values[2];
+  const distance = values[3];
+  const fine = values[4];
+
   const tr = document.createElement('tr');
-  tr.id = values[0];
+  tr.id = caseNumber;
 
-  const borderSign = document.createElement('td');
-  borderSign.textContent = values[1] === '' ? '?' : values[1];
-  tr.appendChild(borderSign)
+  const borderSignElement = document.createElement('td');
+  borderSignElement.textContent = borderSign === '' ? '?' : borderSign;
+  if (borderSign && document.borderSigns[borderSign]) {
+    borderSignElement.onclick = () => addBorderSignMarker(borderSign);
+    borderSignElement.classList.add('known');
+  }
+  tr.appendChild(borderSignElement)
 
-  const arrestDate = document.createElement('td');
-  arrestDate.textContent = values[2] === '' ? '?' : values[2].replace('T', ' ');
-  tr.appendChild(arrestDate)
+  const arrestDateElement = document.createElement('td');
+  arrestDateElement.textContent = arrestDate === '' ? '?' : arrestDate.replace('T', ' ');
+  tr.appendChild(arrestDateElement)
 
-  const distance = document.createElement('td');
-  distance.textContent = values[3] === '' ? '?' : values[3] + ' м';
-  tr.appendChild(distance)
+  const distanceElement = document.createElement('td');
+  distanceElement.textContent = distance === '' ? '?' : distance + ' м';
+  tr.appendChild(distanceElement)
 
-  const fine = document.createElement('td');
-  fine.textContent = values[4] === '' ? '?' : values[4] < 0 ? '-' : values[4] + ' грн';
-  tr.appendChild(fine)
+  const fineElement = document.createElement('td');
+  fineElement.textContent = fine === '' ? '?' : fine < 0 ? '-' : fine + ' грн';
+  tr.appendChild(fineElement)
 
-  const caseRef = document.createElement('td');
-  caseRef.innerHTML = '<a target="_blank" rel="nofollow" title="Судьбове рішення" href="https://reyestr.court.gov.ua/Review/' + values[0] + '">§</a>';
-  tr.appendChild(caseRef)
+  const caseRefElement = document.createElement('td');
+  caseRefElement.innerHTML = '<a target="_blank" rel="nofollow" title="Судьбове рішення" href="https://reyestr.court.gov.ua/Review/' + caseNumber + '">§</a>';
+  tr.appendChild(caseRefElement)
 
   return tr;
 }
@@ -112,8 +128,11 @@ function toggleSortDirection() {
 }
 
 initMap();
-loadData();
-loadBorderSigns();
+
+Promise.all([
+  loadBorderSigns(),
+  loadData(),
+]).then(showData)
 
 document.getElementById('th-borderSign').onclick = function () {
   if (document.sortColumn === 1) {

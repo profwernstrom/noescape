@@ -78,3 +78,9 @@ th, td {
   padding: 0 15px 5px 5px;
   border: 0;
 }
+
+.known {
+  text-decoration:underline;
+  text-decoration-style: dotted;
+  cursor: pointer;
+}
