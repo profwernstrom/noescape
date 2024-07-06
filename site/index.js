@@ -45,7 +45,9 @@ function addBorderSignMarker(title) {
   if (selectedBorderSign) {
     selectedBorderSign.setMap(null);
   }
-  selectedBorderSign = addMarker(title, document.borderSigns[title]);
+  const position = document.borderSigns[title];
+  selectedBorderSign = addMarker(title, position);
+  map.setCenter(position);
 }
 
 function createTableRow(values) {
