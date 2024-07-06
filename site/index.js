@@ -2,15 +2,16 @@
 let map;
 let addMarker;
 let selectedBorderSign
+let selectedCountry = 'RO';
 
 async function initMap() {
-  const {Map} = await google.maps.importLibrary("maps");
-  const {AdvancedMarkerElement} = await google.maps.importLibrary("marker");
+  const {Map} = await google.maps.importLibrary('maps');
+  const {AdvancedMarkerElement} = await google.maps.importLibrary('marker');
 
-  map = new Map(document.getElementById("map"), {
+  map = new Map(document.getElementById('map'), {
     zoom: 7,
     center: {lat: 48.50, lng: 28.00},
-    mapId: "DEMO_MAP_ID",
+    mapId: 'DEMO_MAP_ID',
   });
 
   addMarker = (title, position) => {
@@ -26,9 +27,7 @@ function loadData() {
   return fetch('data.txt')
     .then(r => r.text())
     .then(tsv => parseData(tsv))
-    .then(data => {
-      document.data = data;
-    })
+    .then(data => document.data = data);
 }
 
 function loadBorderSigns() {
@@ -37,7 +36,7 @@ function loadBorderSigns() {
     .then(tsv => tsv.trim().split('\n').map(line => line.split('\t')))
     .then(data => {
       document.borderSigns = {};
-      data.forEach(values => document.borderSigns[values[0]] = {lat: parseFloat(values[1]), lng: parseFloat(values[2])});
+      data.forEach(values => document.borderSigns[values[0] + "-" + values[1]] = {lat: parseFloat(values[2]), lng: parseFloat(values[3])});
       console.log(document.borderSigns);
     })
 }
@@ -51,18 +50,19 @@ function addBorderSignMarker(title) {
 
 function createTableRow(values) {
   const caseNumber = values[0];
-  const borderSign = values[1];
-  const arrestDate = values[2];
-  const distance = values[3];
-  const fine = values[4];
+  const country = values[1];
+  const borderSign = values[2];
+  const arrestDate = values[3];
+  const distance = values[4];
+  const fine = values[5];
 
   const tr = document.createElement('tr');
   tr.id = caseNumber;
 
   const borderSignElement = document.createElement('td');
   borderSignElement.textContent = borderSign === '' ? '?' : borderSign;
-  if (borderSign && document.borderSigns[borderSign]) {
-    borderSignElement.onclick = () => addBorderSignMarker(borderSign);
+  if (borderSign && document.borderSigns[country + '-' + borderSign]) {
+    borderSignElement.onclick = () => addBorderSignMarker(country + '-' + borderSign);
     borderSignElement.classList.add('known');
   }
   tr.appendChild(borderSignElement)
@@ -89,8 +89,8 @@ function createTableRow(values) {
 function parseData(tsv) {
   return tsv.trim().split('\n')
     .map(line => line.split('\t'))
-    .map(values => values.concat(Array(5).fill('')).slice(0, 5))
-    .filter(values => values[4] === '' || values[4] >= 0);
+    .map(values => values.concat(Array(6).fill('')).slice(0, 6))
+    .filter(values => values[5] === '' || values[5] >= 0);
 }
 
 function getSorter() {
@@ -118,6 +118,7 @@ function showData() {
   const tbody = document.getElementById('data-table-body');
   tbody.replaceChildren();
   document.data
+    .filter(values => values[1] === selectedCountry)
     .toSorted(getSorter())
     .map(values => createTableRow(values))
     .forEach(tr => tbody.appendChild(tr));
@@ -135,41 +136,46 @@ Promise.all([
 ]).then(showData)
 
 document.getElementById('th-borderSign').onclick = function () {
-  if (document.sortColumn === 1) {
+  if (document.sortColumn === 2) {
     toggleSortDirection();
   } else {
-    document.sortColumn = 1;
+    document.sortColumn = 2;
     document.sortDirection = 'asc';
   }
   showData();
 }
 
 document.getElementById('th-arrestDate').onclick = function () {
-  if (document.sortColumn === 2) {
+  if (document.sortColumn === 3) {
     toggleSortDirection();
   } else {
-    document.sortColumn = 2;
+    document.sortColumn = 3;
     document.sortDirection = 'desc';
   }
   showData();
 }
 
 document.getElementById('th-distance').onclick = function () {
-  if (document.sortColumn === 3) {
-    toggleSortDirection();
-  } else {
-    document.sortColumn = 3;
-    document.sortDirection = 'asc';
-  }
-  showData();
-}
-
-document.getElementById('th-fine').onclick = function () {
   if (document.sortColumn === 4) {
     toggleSortDirection();
   } else {
     document.sortColumn = 4;
     document.sortDirection = 'asc';
   }
+  showData();
+}
+
+document.getElementById('th-fine').onclick = function () {
+  if (document.sortColumn === 5) {
+    toggleSortDirection();
+  } else {
+    document.sortColumn = 5;
+    document.sortDirection = 'asc';
+  }
+  showData();
+}
+
+document.getElementById('country').onchange = function (event) {
+  selectedCountry = event.target.value;
   showData();
 }
