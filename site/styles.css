@@ -42,7 +42,13 @@ body {
 .footer {
   height: 64px;
   background-color: #f1f1f1;
-  padding: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    margin-right: 10px;
+  }
 }
 
 form {

@@ -3,37 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Layout</title>
+  <title>NoEscape FYI - Перетинання або спроба незаконного перетинання державного кордону України</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
-  <header class="header">Header</header>
+  <header class="header">
+    <h3>Судові справи про перетинання або спробу незаконного перетинання державного кордону України</h3>
+  </header>
   <div class="main">
     <div class="sidebar">
       <form>
-        <div>
-          <label>Судові справи
-            <select>
-              <option>за останні 3 місяці</option>
-              <option>за останні півроку</option>
-              <option>за останній рік</option>
-            </select>
-          </label>
-        </div>
-        <div>
-          <label>Область
-            <select>
-              <option>Волинська</option>
-              <option>Львівська</option>
-              <option>Закарпатська</option>
-              <option>Івано-Франківська</option>
-              <option>Чернівецька</option>
-              <option>Вінницька</option>
-              <option>Одеська</option>
-            </select>
-          </label>
-        </div>
+        Увага! Дані можуть містити помилки.
       </form>
       <div class="table-container">
         <table>
@@ -54,31 +35,39 @@
     <div class="map" id="map"></div>
   </div>
 </div>
-<footer class="footer">Footer</footer>
+<footer class="footer">
+  <div></div>
+  <div>
+    <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img
+      height="48" width="136" src="cc-zero-48x136.png" alt="License CC0"></a>
+    <a href="https://github.com/profwernstrom/noescape"><img
+      height="48" width="48" src="github-mark-48x48.png" alt="Github Repository"></a>
+  </div>
+</footer>
 <script>
-    (g => {
-        var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
-            m = document, b = window;
-        b = b[c] || (b[c] = {});
-        var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
-            u = () => h || (h = new Promise(async (f, n) => {
-                await (a = m.createElement("script"));
-                e.set("libraries", [...r] + "");
-                for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
-                e.set("callback", c + ".maps." + q);
-                a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
-                d[q] = f;
-                a.onerror = () => h = n(Error(p + " could not load."));
-                a.nonce = m.querySelector("script[nonce]")?.nonce || "";
-                m.head.append(a)
-            }));
-        d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
-    })({
-        key: "AIzaSyDtJXV-I6_CFiMyYOeaS99B0XBTlahnQOs",
-        v: "weekly",
-        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-        // Add other bootstrap parameters as needed, using camel case.
-    });
+  (g => {
+    var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+      m = document, b = window;
+    b = b[c] || (b[c] = {});
+    var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+      u = () => h || (h = new Promise(async (f, n) => {
+        await (a = m.createElement("script"));
+        e.set("libraries", [...r] + "");
+        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+        e.set("callback", c + ".maps." + q);
+        a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+        d[q] = f;
+        a.onerror = () => h = n(Error(p + " could not load."));
+        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+        m.head.append(a)
+      }));
+    d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+  })({
+    key: "AIzaSyDtJXV-I6_CFiMyYOeaS99B0XBTlahnQOs",
+    v: "weekly",
+    // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+    // Add other bootstrap parameters as needed, using camel case.
+  });
 </script>
 <script src="index.js"></script>
 </body>
