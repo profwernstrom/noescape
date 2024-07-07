@@ -119,8 +119,7 @@ function createTableRow(values) {
 function parseData(tsv) {
   return tsv.trim().split('\n')
     .map(line => line.split('\t'))
-    .map(values => values.concat(Array(6).fill('')).slice(0, 6))
-    .filter(values => values[5] === '' || values[5] >= 0);
+    .map(values => values.concat(Array(6).fill('')).slice(0, 6));
 }
 
 function getSorter() {
