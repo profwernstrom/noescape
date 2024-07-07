@@ -123,7 +123,7 @@ function parseData(tsv) {
 }
 
 function getSorter() {
-  const sortColumn = document.sortColumn ? document.sortColumn : 1
+  const sortColumn = document.sortColumn ? document.sortColumn : 2
   const sortDirection = document.sortDirection ? document.sortDirection : 'asc'
 
   const sortFunction = (a, b) => {
