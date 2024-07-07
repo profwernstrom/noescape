@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -26,11 +27,49 @@ body {
 }
 
 .sidebar {
-  width: 500px;
+  width: 590px;
   background-color: #ddd;
   padding: 10px;
   display: flex;
   flex-direction: column;
+
+  form {
+    flex: 0 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .table-container {
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 0;
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
+
+  th {
+    cursor: pointer;
+  }
+
+  th, td {
+    text-align: right;
+    padding: 0 15px 5px 5px;
+    border: 0;
+  }
+
+  .known {
+    text-decoration:underline;
+    text-decoration-style: dotted;
+    cursor: pointer;
+  }
 }
 
 .map {
@@ -49,38 +88,4 @@ body {
   img {
     margin-right: 10px;
   }
-}
-
-form {
-  flex: 0 0 auto;
-  margin-bottom: 20px;
-}
-
-.table-container {
-  flex: 1 1 auto;
-  overflow-y: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 0;
-}
-
-thead {
-  position: sticky;
-  top: 0;
-  background-color: white;
-}
-
-th, td {
-  text-align: right;
-  padding: 0 15px 5px 5px;
-  border: 0;
-}
-
-.known {
-  text-decoration:underline;
-  text-decoration-style: dotted;
-  cursor: pointer;
 }
