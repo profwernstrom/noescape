@@ -63,12 +63,16 @@ body {
     text-align: right;
     padding: 0 15px 5px 5px;
     border: 0;
+    cursor: pointer;
+  }
+
+  tr.selected {
+    background-color: lightcyan;
   }
 
   .known {
     text-decoration:underline;
     text-decoration-style: dotted;
-    cursor: pointer;
   }
 }
 

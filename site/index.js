@@ -1,5 +1,6 @@
 let map;
 let addMarker;
+let selectedCase
 let selectedBorderSign
 let selectedCountry = 'RO';
 let sortDirection = 'asc';
@@ -89,6 +90,15 @@ function addBorderSignMarker(title) {
   map.setCenter(position);
 }
 
+function selectCase(caseNumber, borderSign) {
+  if (selectedCase) {
+    document.getElementById(selectedCase).classList.remove('selected')
+  }
+  selectedCase = caseNumber;
+  document.getElementById(selectedCase).classList.add('selected');
+  addBorderSignMarker(selectedCountry + '-' + borderSign)
+}
+
 function createTableRow(values) {
   const caseNumber = values[0];
   const country = values[1];
@@ -99,11 +109,11 @@ function createTableRow(values) {
 
   const tr = document.createElement('tr');
   tr.id = caseNumber;
+  tr.onclick = () => selectCase(caseNumber, borderSign);
 
   const borderSignElement = document.createElement('td');
   borderSignElement.textContent = borderSign === '' ? '?' : borderSign;
   if (borderSign && borderSigns[country + '-' + borderSign]) {
-    borderSignElement.onclick = () => addBorderSignMarker(country + '-' + borderSign);
     borderSignElement.classList.add('known');
   }
   tr.appendChild(borderSignElement)
@@ -159,6 +169,11 @@ function showData() {
     .toSorted(getSorter())
     .map(values => createTableRow(values))
     .forEach(tr => tbody.appendChild(tr));
+  if (selectedCase) {
+    const selectedTableRow = document.getElementById(selectedCase);
+    selectedTableRow.classList.add('selected');
+    selectedTableRow.scrollIntoView({block: "center"});
+  }
 }
 
 function sortColumn(column) {
@@ -178,6 +193,10 @@ function addDataTableListeners() {
   document.getElementById('th-fine').onclick = () => sortColumn(5)
 
   document.getElementById('country').onchange = function (event) {
+    selectedCase = null;
+    if (selectedBorderSign){
+      selectedBorderSign.setMap(null);
+    }
     selectedCountry = event.target.value;
     showData();
   }
