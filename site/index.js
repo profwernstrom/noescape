@@ -148,8 +148,8 @@ function getSorter() {
   const sortFunction = (a, b) => {
     let val1 = a[sortColumnIndex];
     let val2 = b[sortColumnIndex];
-    if (val1 === undefined || val1 === null) val1 = '';
-    if (val2 === undefined || val2 === null) val2 = '';
+    if (!val1) val1 = 'ZZZZZZZ'; // Put unknown to the end
+    if (!val2) val2 = 'ZZZZZZZ';
     val1 = val1.padStart(7)
     val2 = val2.padStart(7)
     return val1.toString().localeCompare(val2.toString());
