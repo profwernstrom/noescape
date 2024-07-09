@@ -2,6 +2,7 @@ let map;
 let addMarker;
 let selectedCase
 let selectedBorderSign
+let selectedArrestPosition;
 let selectedCountry = 'RO';
 let sortDirection = 'asc';
 let sortColumnIndex = 2;
@@ -90,13 +91,24 @@ function addBorderSignMarker(title) {
   map.setCenter(position);
 }
 
-function selectCase(caseNumber, borderSign) {
+function addArrestMarker(title, arrestPosition) {
+  if (selectedArrestPosition) {
+    selectedArrestPosition.setMap(null);
+  }
+  selectedArrestPosition = addMarker(title, arrestPosition);
+  map.setCenter(arrestPosition);
+}
+
+function selectCase(caseNumber, arrestPosition, borderSign) {
   if (selectedCase) {
     document.getElementById(selectedCase).classList.remove('selected')
   }
   selectedCase = caseNumber;
   document.getElementById(selectedCase).classList.add('selected');
-  addBorderSignMarker(selectedCountry + '-' + borderSign)
+  addBorderSignMarker(selectedCountry + '-' + borderSign);
+  if (arrestPosition) {
+    addArrestMarker(caseNumber, arrestPosition);
+  }
 }
 
 function createTableRow(values) {
@@ -106,10 +118,11 @@ function createTableRow(values) {
   const arrestDate = values[3];
   const distance = values[4];
   const fine = values[5];
+  const arrestPosition = values[6] && values[7] ? {lat: parseFloat(values[6]), lng: parseFloat(values[7])} : null;
 
   const tr = document.createElement('tr');
   tr.id = caseNumber;
-  tr.onclick = () => selectCase(caseNumber, borderSign);
+  tr.onclick = () => selectCase(caseNumber, arrestPosition, borderSign);
 
   const borderSignElement = document.createElement('td');
   borderSignElement.textContent = borderSign === '' ? '?' : borderSign;
@@ -140,7 +153,7 @@ function createTableRow(values) {
 function parseData(tsv) {
   return tsv.trim().split('\n')
     .map(line => line.split('\t'))
-    .map(values => values.concat(Array(6).fill('')).slice(0, 6));
+    .map(values => values.concat(Array(8).fill('')).slice(0, 8));
 }
 
 function getSorter() {
