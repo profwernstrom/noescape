@@ -38,10 +38,18 @@ async function initMap() {
   const {Map} = await google.maps.importLibrary('maps');
   const {AdvancedMarkerElement} = await google.maps.importLibrary('marker');
 
-  map = new Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     zoom: 7,
     center: {lat: 48.50, lng: 28.00},
     mapId: 'DEMO_MAP_ID',
+  });
+
+  map.data.setStyle(function (feature) {
+    const caseNumber = feature.getProperty('caseNumber');
+    const borderSign = feature.getProperty('borderSign');
+    return {
+      title: caseNumber + " -> " + borderSign,
+    };
   });
 
   addMarker = (title, position) => {
@@ -175,6 +183,20 @@ function getSorter() {
   }
 }
 
+function showArrestPlaces() {
+
+  const markers = [];
+  for (const [_, countryCases] of Object.entries(cases)) {
+    countryCases
+      .filter(values => !!values[6])
+      .forEach(values => {
+        const marker = addMarker(values[0],  {lat: parseFloat(values[6]), lng: parseFloat(values[7])});
+        markers.push(marker);
+      })
+  }
+  const markerCluster = new markerClusterer.MarkerClusterer({map, markers});
+}
+
 function showData() {
   const tbody = document.getElementById('data-table-body');
   tbody.replaceChildren();
@@ -207,7 +229,7 @@ function addDataTableListeners() {
 
   document.getElementById('country').onchange = function (event) {
     selectedCase = null;
-    if (selectedBorderSign){
+    if (selectedBorderSign) {
       selectedBorderSign.setMap(null);
     }
     selectedCountry = event.target.value;
@@ -221,6 +243,6 @@ fetch('API-KEY').then(r => r.text()).then(key => {
       initMap(),
       loadBorderSigns(),
       loadData(),
-    ]).then(addDataTableListeners).then(showData)
+    ]).then(addDataTableListeners).then(showData).then(showArrestPlaces)
   }
 );
