@@ -39,12 +39,12 @@ header {
 .map {
   background-color: darkseagreen;
   order: 1;
-  flex-basis: 200px;
+  flex-basis: 400px;
 }
 
 .sidebar {
   order: 2;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 400px);
   display: flex;
   flex-direction: column;
   font-size: 14px;
