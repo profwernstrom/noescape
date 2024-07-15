@@ -8,6 +8,7 @@ let sortDirection = 'asc';
 let sortColumnIndex = 2;
 let cases = {};
 let borderSigns = {};
+let infoWindow;
 
 function loadMapApi(apiKey) {
   var g = {
@@ -59,6 +60,10 @@ async function initMap() {
       title: title,
     });
   }
+
+  infoWindow = new google.maps.InfoWindow({
+    content: "",
+  });
 }
 
 function loadData() {
@@ -152,7 +157,7 @@ function createTableRow(values) {
   tr.appendChild(fineElement)
 
   const caseRefElement = document.createElement('td');
-  caseRefElement.innerHTML = '<a target="_blank" rel="nofollow" title="Судьбове рішення" href="https://reyestr.court.gov.ua/Review/' + caseNumber + '">§</a>';
+  caseRefElement.innerHTML = '<a target="_blank" rel="nofollow" title="Судове рішення" href="https://reyestr.court.gov.ua/Review/' + caseNumber + '">§</a>';
   tr.appendChild(caseRefElement)
 
   return tr;
@@ -190,7 +195,21 @@ function showArrestPlaces() {
     countryCases
       .filter(values => !!values[6])
       .forEach(values => {
-        const marker = addMarker(values[0],  {lat: parseFloat(values[6]), lng: parseFloat(values[7])});
+        const caseNumber = values[0];
+        const arrestDate = values[3].replace('T', ' ');
+        const distance = values[4];
+        const fine = values[5];
+        const position = {lat: parseFloat(values[6]), lng: parseFloat(values[7])};
+        const marker = addMarker(values[0], position);
+        marker.addListener("click", () => {
+          infoWindow.setContent(
+            `<div>Дата затримання: ${arrestDate || '?'}</div>`
+           + `<div>Відстань до кордону: ${distance || '?'} м</div>`
+           + `<div>Штраф: ${fine || '?'} грн</div>`
+           + `<div><a target="_blank" rel="nofollow" title="Судове рішення" href="https://reyestr.court.gov.ua/Review/${caseNumber}">Судове рішення</a></div>`
+          );
+          infoWindow.open(map, marker);
+        });
         markers.push(marker);
       })
   }
