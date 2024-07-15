@@ -15,19 +15,25 @@ body, html {
 }
 
 header {
-  padding: 10px;
-  align-content: center;
+  padding: 4px;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
 
   h3 {
     font-size: 12px;
   }
 }
 
+.icons {
+  display: none;
+}
+
 .content {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 42px);
 }
 
 .map {
@@ -98,6 +104,11 @@ header {
       font-size: 16px;
     }
   }
+
+  .icons {
+    display: block;
+  }
+
   .sidebar {
     order: 0;
     max-height: 100vh;
