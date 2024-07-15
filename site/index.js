@@ -95,6 +95,16 @@ function loadBorderSigns() {
     })
 }
 
+function showInfo(marker, caseNumber, arrestDate, distance, fine, ) {
+  infoWindow.setContent(
+    `<div>Дата затримання: ${arrestDate || '?'}</div>`
+    + `<div>Відстань до кордону: ${distance || '?'} м</div>`
+    + `<div>Штраф: ${fine || '?'} грн</div>`
+    + `<div><a target="_blank" rel="nofollow" title="Судове рішення" href="https://reyestr.court.gov.ua/Review/${caseNumber}">Судове рішення</a></div>`
+  );
+  infoWindow.open(map, marker);
+}
+
 function addBorderSignMarker(title) {
   if (selectedBorderSign) {
     selectedBorderSign.setMap(null);
@@ -112,7 +122,7 @@ function addArrestMarker(title, arrestPosition) {
   map.setCenter(arrestPosition);
 }
 
-function selectCase(caseNumber, arrestPosition, borderSign) {
+function selectCase(caseNumber, arrestPosition, borderSign, arrestDate, distance, fine) {
   if (selectedCase) {
     document.getElementById(selectedCase).classList.remove('selected')
   }
@@ -121,6 +131,7 @@ function selectCase(caseNumber, arrestPosition, borderSign) {
   addBorderSignMarker(selectedCountry + '-' + borderSign);
   if (arrestPosition) {
     addArrestMarker(caseNumber, arrestPosition);
+    showInfo(selectedArrestPosition, caseNumber, arrestDate, distance, fine)
   }
 }
 
@@ -135,7 +146,7 @@ function createTableRow(values) {
 
   const tr = document.createElement('tr');
   tr.id = caseNumber;
-  tr.onclick = () => selectCase(caseNumber, arrestPosition, borderSign);
+  tr.onclick = () => selectCase(caseNumber, arrestPosition, borderSign, arrestDate, distance, fine);
 
   const borderSignElement = document.createElement('td');
   borderSignElement.textContent = borderSign === '' ? '?' : borderSign;
@@ -202,13 +213,7 @@ function showArrestPlaces() {
         const position = {lat: parseFloat(values[6]), lng: parseFloat(values[7])};
         const marker = addMarker(values[0], position);
         marker.addListener("click", () => {
-          infoWindow.setContent(
-            `<div>Дата затримання: ${arrestDate || '?'}</div>`
-           + `<div>Відстань до кордону: ${distance || '?'} м</div>`
-           + `<div>Штраф: ${fine || '?'} грн</div>`
-           + `<div><a target="_blank" rel="nofollow" title="Судове рішення" href="https://reyestr.court.gov.ua/Review/${caseNumber}">Судове рішення</a></div>`
-          );
-          infoWindow.open(map, marker);
+          showInfo(marker, caseNumber, arrestDate, distance, fine);
         });
         markers.push(marker);
       })
