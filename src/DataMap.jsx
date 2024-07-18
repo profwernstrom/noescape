@@ -33,7 +33,7 @@ function DataMap({selectedCase, onSelectCase, cases}) {
 
     return (
         <Map id="map" mapId="DEMO_MAP_ID" defaultCenter={{lat: 48.50, lng: 28.00}} defaultZoom={7} language="uk"
-             region="UA" reuseMaps={true} className="map">
+             region="UA" reuseMaps={true} streetViewControl={false} streetViewControlclassName="map">
 
             {selectedCase && (
                 <>
