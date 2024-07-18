@@ -47,7 +47,7 @@ function DataMap({selectedCase, onSelectCase, cases}) {
                             <p>Штраф:&nbsp;
                                 {selectedCase.fine ? selectedCase.fine + ' грн' : '?'}</p>
                             <p><a target="_blank" rel="nofollow" title="Судове рішення"
-                                  href="https://reyestr.court.gov.ua/Review/${caseId}">Судове рішення</a></p>
+                                  href={'https://reyestr.court.gov.ua/Review/' + selectedCase.caseId}>Судове рішення</a></p>
                         </InfoWindow>
                     )}
 
