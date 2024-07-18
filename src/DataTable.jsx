@@ -8,7 +8,15 @@ function DataTable({country, cases, selectedCase, onSelectCase}) {
 
     const filterData = (courtCase) => (courtCase.country || '?') === country;
 
-    const sortData = (a, b) => (a[sortBy] === null) - (b[sortBy] === null) || +(a[sortBy] > b[sortBy]) * sortDirection || -(a[sortBy] < b[sortBy]) * sortDirection;
+    const sortData = (a, b) => {
+        let aa = a[sortBy];
+        let bb =  b[sortBy];
+        if (sortBy === 'borderSign') {
+            aa = aa ? aa.padStart('7') : 'ZZZZZZZ'; // Put unknown to the end
+            bb = bb ? bb.padStart('7') : 'ZZZZZZZ';
+        }
+        return (aa === null) - (bb === null) || +(aa > bb) * sortDirection || -(aa < bb) * sortDirection;
+    };
 
     const scrollToCase = (courtCase) => {
         if (courtCase) {
