@@ -71,6 +71,10 @@ header {
             background-color: white;
         }
 
+        tbody a {
+            text-decoration: none;
+        }
+
         th {
             cursor: pointer;
         }
