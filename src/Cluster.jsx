@@ -1,6 +1,7 @@
 import {useMap, useMapsLibrary} from '@vis.gl/react-google-maps';
 import React, {useEffect} from 'react';
 import {MarkerClusterer} from '@googlemaps/markerclusterer';
+import {formatDate} from "./util.js";
 
 function Cluster({cases, onSelectCase}) {
     const map = useMap();
@@ -13,7 +14,7 @@ function Cluster({cases, onSelectCase}) {
             .map(courtCase => {
                 const marker = new markerLibrary.AdvancedMarkerElement({
                     position: courtCase.position,
-                    title: courtCase.caseId,
+                    title: formatDate(courtCase.arrestDate) || null,
                     gmpClickable: true,
                 });
                 marker.addListener("click", () => onSelectCase(courtCase));
