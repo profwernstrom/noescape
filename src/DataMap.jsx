@@ -29,6 +29,7 @@ function DataMap({selectedCase, onSelectCase, cases}) {
     const handleSelectCase = useCallback((selectedCase) => {
         setInfowindowOpen(false);
         onSelectCase(selectedCase)
+        setInfowindowOpen(true);
     }, []);
 
     return (
@@ -56,7 +57,7 @@ function DataMap({selectedCase, onSelectCase, cases}) {
                         position={selectedCase.position}
                         title={formatDate(selectedCase.arrestDate)}
                         zIndex={Number.MAX_SAFE_INTEGER}
-                        onClick={() => setInfowindowOpen(true)}>
+                        onClick={handleSelectCase}>
                         <Pin background={"yellow"} borderColor={"brown"} glyphColor={"orange"}></Pin>
                     </AdvancedMarker>
                 </>
