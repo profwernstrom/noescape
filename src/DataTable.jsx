@@ -10,8 +10,8 @@ function DataTable({country, cases, selectedCase, onSelectCase}) {
 
     const sortData = (a, b) => {
         let aa = a[sortBy];
-        let bb =  b[sortBy];
-        if (sortBy === 'borderSign') {
+        let bb = b[sortBy];
+        if (sortBy === 'borderSign' || sortBy === 'fine') {
             aa = aa ? aa.padStart('7') : 'ZZZZZZZ'; // Put unknown to the end
             bb = bb ? bb.padStart('7') : 'ZZZZZZZ';
         }
@@ -63,7 +63,8 @@ function DataTable({country, cases, selectedCase, onSelectCase}) {
                     <td>{formatDate(courtCase.arrestDate)}</td>
                     <td>{courtCase.distance === null ? '?' : courtCase.distance}</td>
                     <td>{courtCase.fine === null ? '?' : courtCase.fine}</td>
-                    <td><a href={'https://reyestr.court.gov.ua/Review/' + courtCase.caseId} title="Судове рішення">§</a></td>
+                    <td><a href={'https://reyestr.court.gov.ua/Review/' + courtCase.caseId} title="Судове рішення">§</a>
+                    </td>
                 </tr>
             ))}
             </tbody>

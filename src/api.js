@@ -9,10 +9,21 @@ function parseData(tsv) {
                 borderSign: values[2] || null,
                 arrestDate: values[3] || null,
                 distance: values[4] ? parseInt(values[4]) : null,
-                fine: values[5] ? parseInt(values[5]) : null,
+                fine: values[5] || null,
                 position: values[6] ? {lat: parseFloat(values[6]), lng: parseFloat(values[7])} : null,
             };
         });
+}
+
+function parseBorderSigns(tsv) {
+    return tsv.trim().split('\n')
+        .map(line => line.split('\t'))
+        .map(values => ({
+            country: values[0],
+            title: values[1],
+            lat: parseFloat(values[2]),
+            lng: parseFloat(values[3]),
+        }));
 }
 
 export function loadData() {
@@ -21,15 +32,8 @@ export function loadData() {
         .then(text => parseData(text));
 }
 
-function loadBorderSigns() {
+export function loadBorderSigns() {
     return fetch('signs.txt')
         .then(r => r.text())
-        .then(tsv => tsv.trim().split('\n').map(line => line.split('\t')))
-        .then(data => {
-            // borderSigns = {};
-            // data.forEach(values => borderSigns[values[0] + "-" + values[1]] = {
-            //     lat: parseFloat(values[2]),
-            //     lng: parseFloat(values[3])
-            // });
-        })
+        .then(tsv => parseBorderSigns(tsv));
 }

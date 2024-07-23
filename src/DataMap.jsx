@@ -11,7 +11,7 @@ function MapCapture() {
 }
 
 
-function DataMap({selectedCase, onSelectCase, cases}) {
+function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
 
     const [infowindowOpen, setInfowindowOpen] = useState(false);
 

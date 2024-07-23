@@ -2,16 +2,18 @@ import {useCallback, useEffect, useState} from 'react'
 import Sidebar from "./Sidebar.jsx";
 import PageHeader from "./PageHeader.jsx";
 import DataMap from "./DataMap.jsx";
-import {loadData} from "./api.js";
+import {loadBorderSigns, loadData} from "./api.js";
 import {APIProvider} from "@vis.gl/react-google-maps";
 
 
 function App() {
     const [cases, setCases] = useState([]);
+    const [borderSigns, setBorderSigns] = useState([]);
     const [selectedCase, setSelectedCase] = useState(null);
 
     useEffect(() => {
-        loadData().then(data => setCases(data));
+        loadData().then(setCases);
+        loadBorderSigns().then(setBorderSigns)
     }, []);
 
 
@@ -24,7 +26,7 @@ function App() {
             <PageHeader></PageHeader>
             <div className="content">
                 <APIProvider apiKey={import.meta.env.VITE_MAPS_API_KEY}>
-                    <DataMap selectedCase={selectedCase} onSelectCase={handleSelectCase} cases={cases}/>
+                    <DataMap selectedCase={selectedCase} onSelectCase={handleSelectCase} cases={cases} borderSigns={borderSigns}/>
                 </APIProvider>
                 <Sidebar selectedCase={selectedCase} onSelectCase={handleSelectCase} cases={cases}></Sidebar>
             </div>
