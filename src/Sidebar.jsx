@@ -15,6 +15,7 @@ function Sidebar({cases, selectedCase, onSelectCase}) {
                         <option value="HU">Угорщина</option>
                         <option value="RO">Румунія</option>
                         <option value="MD">Молдова</option>
+                        <option value="BY">Білорусь</option>
                         <option value="?">невизначено</option>
                     </select>
                 </label>
