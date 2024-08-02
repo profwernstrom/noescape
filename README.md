@@ -1,3 +1,4 @@
-```shell title=".env.local"
-VITE_MAPS_API_KEY="<YOUR API KEY HERE>"
+Create file .env.local with the following content
+```shell
+VITE_MAPS_API_KEY="<YOUR GOOGLE MAPS API KEY HERE>"
 ```
