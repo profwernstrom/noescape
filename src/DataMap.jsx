@@ -43,6 +43,8 @@ function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
                                     headerContent="Приблизне місце затримання">
                             <p>Дата затримання:&nbsp;
                                 {selectedCase.arrestDate ? formatDate(selectedCase.arrestDate) : '?'}</p>
+                            <p>Дата оприлюднення:&nbsp;
+                                {selectedCase.publicationDate ? formatDate(selectedCase.publicationDate) : '?'}</p>
                             <p>Відстань до кордону:&nbsp;
                                 {selectedCase.distance ? selectedCase.distance + ' м' : '?'}</p>
                             <p>Штраф:&nbsp;
