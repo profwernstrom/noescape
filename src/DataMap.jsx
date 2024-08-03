@@ -14,6 +14,7 @@ function MapCapture() {
 function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
 
     const [infowindowOpen, setInfowindowOpen] = useState(false);
+    const [showBorderSigns, setShowBorderSigns] = useState(false);
 
     const markerRef = useRef();
 
@@ -32,9 +33,15 @@ function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
         setInfowindowOpen(true);
     }, []);
 
+    const handleZoomChanged = useCallback(({map}) => {
+        setShowBorderSigns(map.zoom > 13);
+        console.log("zoom:" + map.zoom);
+    }, [])
+
     return (
         <Map id="map" mapId="DEMO_MAP_ID" defaultCenter={{lat: 48.50, lng: 28.00}} defaultZoom={7} language="uk"
-             region="UA" reuseMaps={true} streetViewControl={false} streetViewControlclassName="map">
+             region="UA" reuseMaps={true} streetViewControl={false} streetViewControlclassName="map"
+             onZoomChanged={handleZoomChanged}>
 
             {selectedCase && (
                 <>
@@ -50,7 +57,8 @@ function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
                             <p>Штраф:&nbsp;
                                 {selectedCase.fine ? selectedCase.fine + ' грн' : '?'}</p>
                             <p><a target="_blank" rel="nofollow" title="Судове рішення"
-                                  href={'https://reyestr.court.gov.ua/Review/' + selectedCase.caseId}>Судове рішення</a></p>
+                                  href={'https://reyestr.court.gov.ua/Review/' + selectedCase.caseId}>Судове рішення</a>
+                            </p>
                         </InfoWindow>
                     )}
 
@@ -64,6 +72,20 @@ function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
                     </AdvancedMarker>
                 </>
             )}
+            {showBorderSigns && borderSigns.map((borderSign) => (
+                <AdvancedMarker
+                    key={borderSign.country + borderSign.title}
+                    position={borderSign}>
+                    <div
+                        style={{
+                            position: 'absolute',
+                            backgroundColor: '#99ff99',
+                            top: 0,
+                            left: 0,
+                            transform: 'translate(-50%, -50%)'
+                        }}>{borderSign.title}</div>
+                </AdvancedMarker>
+            ))}
             <MapCapture/>
             <Cluster cases={cases} onSelectCase={handleSelectCase}/>
         </Map>
