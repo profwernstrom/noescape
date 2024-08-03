@@ -12,7 +12,7 @@ function App() {
     const [selectedCase, setSelectedCase] = useState(null);
 
     useEffect(() => {
-        loadData().then(setCases);
+        loadData(2024).then(setCases);
         loadBorderSigns().then(setBorderSigns)
     }, []);
 

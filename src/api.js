@@ -26,8 +26,8 @@ function parseBorderSigns(tsv) {
         }));
 }
 
-export function loadData() {
-    return fetch('data.txt')
+export function loadData(year) {
+    return fetch(`data-${year}.txt`)
         .then(response => response.text())
         .then(text => parseData(text));
 }
