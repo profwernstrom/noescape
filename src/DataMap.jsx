@@ -79,7 +79,7 @@ function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
                     <div
                         style={{
                             position: 'absolute',
-                            backgroundColor: '#99ff99',
+                            backgroundColor: (borderSign.generated ? '#cccccc' : '#99ff99'),
                             top: 0,
                             left: 0,
                             transform: 'translate(-50%, -50%)'

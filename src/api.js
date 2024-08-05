@@ -24,6 +24,7 @@ function parseBorderSigns(tsv) {
             title: values[1],
             lat: parseFloat(values[2]),
             lng: parseFloat(values[3]),
+            generated: values[4] === 'true',
         }));
 }
 
