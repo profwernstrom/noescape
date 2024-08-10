@@ -4,6 +4,7 @@ import {useState} from "react";
 function Sidebar({cases, selectedCase, onSelectCase}) {
 
     const [country, setCountry] = useState("PL")
+    const [year, setYear] = useState("2024")
 
     return (
         <div className="sidebar">
@@ -17,6 +18,11 @@ function Sidebar({cases, selectedCase, onSelectCase}) {
                         <option value="MD">Молдова</option>
                         <option value="BY">Білорусь</option>
                         <option value="?">невизначено</option>
+                    </select>
+                </label>
+                <label>Рік:
+                    <select value={year} onChange={e => setYear(e.target.value)}>
+                        <option value="2024">2024</option>
                     </select>
                 </label>
             </form>

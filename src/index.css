@@ -53,6 +53,10 @@ header {
         flex-grow: 0;
         padding: 8px;
         font-size: 16px;
+
+        label {
+            padding-right: 12px;
+        }
     }
 
     .table-container {
