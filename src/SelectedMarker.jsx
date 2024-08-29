@@ -37,7 +37,7 @@ function SelectedMarker({selectedArrest}) {
                                 {selectedArrest.distance ? selectedArrest.distance + ' м' : '?'}</p>
 
                             {selectedArrest && selectedArrest.cases && selectedArrest.cases.map(courtCase => (
-                                <>
+                                <div key={courtCase.caseId}>
                                     <br/>
                                     <p>Дата оприлюднення:&nbsp;
                                         {courtCase.publicationDate ? formatDate(courtCase.publicationDate) : '?'}</p>
@@ -47,7 +47,7 @@ function SelectedMarker({selectedArrest}) {
                                           href={'https://reyestr.court.gov.ua/Review/' + courtCase.caseId}>Судове
                                         рішення</a>
                                     </p>
-                                </>
+                                </div>
                             ))}
                         </InfoWindow>
                     )}

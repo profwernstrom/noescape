@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from 'react'
+import {useCallback, useEffect, useMemo, useState} from 'react'
 import Sidebar from "./Sidebar.jsx";
 import PageHeader from "./PageHeader.jsx";
 import DataMap from "./DataMap.jsx";
@@ -7,15 +7,21 @@ import {APIProvider} from "@vis.gl/react-google-maps";
 
 
 function App() {
-    const [arrests, setArrests] = useState([]);
+    const [allArrests, setAllArrests] = useState([]);
+    const [period, setPeriod] = useState(6);
     const [borderSigns, setBorderSigns] = useState([]);
     const [selectedArrest, setSelectedArrest] = useState(null);
 
     useEffect(() => {
         loadBorderSigns().then(setBorderSigns);
-        loadArrests().then(setArrests);
+        loadArrests().then(setAllArrests);
     }, []);
 
+    const visibleArrests = useMemo(() => {
+        const fromDate = new Date();
+        fromDate.setMonth(fromDate.getMonth() - period);
+        return allArrests.filter(arrest => arrest.arrestDate && new Date(arrest.arrestDate) >= fromDate);
+    }, [allArrests, period]);
 
     const handleSelectArrest = useCallback((selected) => {
         setSelectedArrest(selected);
@@ -26,9 +32,11 @@ function App() {
             <PageHeader></PageHeader>
             <div className="content">
                 <APIProvider apiKey={import.meta.env.VITE_MAPS_API_KEY}>
-                    <DataMap arrests={arrests} selectedArrest={selectedArrest} onSelectArrest={handleSelectArrest} borderSigns={borderSigns}/>
+                    <DataMap arrests={visibleArrests} selectedArrest={selectedArrest}
+                             onSelectArrest={handleSelectArrest} borderSigns={borderSigns}/>
                 </APIProvider>
-                <Sidebar arrests={arrests} selectedArrest={selectedArrest} onSelectArrest={handleSelectArrest}></Sidebar>
+                <Sidebar arrests={visibleArrests} selectedArrest={selectedArrest}
+                         onSelectArrest={handleSelectArrest} onSelectPeriod={setPeriod}></Sidebar>
             </div>
         </div>
     );

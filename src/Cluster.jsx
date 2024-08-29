@@ -1,5 +1,5 @@
 import {useMap, useMapsLibrary} from '@vis.gl/react-google-maps';
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {MarkerClusterer} from '@googlemaps/markerclusterer';
 import {formatDate} from "./util.js";
 
@@ -15,8 +15,11 @@ function Cluster({arrests, onSelectArrest}) {
     const map = useMap();
     const markerLibrary = useMapsLibrary('marker');
 
+    const markerClusterer = useMemo(() => new MarkerClusterer({map})
+        , [map])
     useEffect(() => {
         if (!map || !markerLibrary || !arrests) return;
+        markerClusterer.clearMarkers(true);
         const markers = arrests
             .filter(arrest => arrest.position)
             .map(arrest => {
@@ -31,7 +34,7 @@ function Cluster({arrests, onSelectArrest}) {
                 marker.addListener("click", () => onSelectArrest(arrest));
                 return marker;
             });
-        new MarkerClusterer({map, markers});
+        markerClusterer.addMarkers(markers);
     }, [map, markerLibrary, arrests]);
 
     return (
