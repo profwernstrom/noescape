@@ -1,17 +1,28 @@
-function parseData(tsv) {
+function parseCases(tsv) {
     return tsv.trim().split('\n')
         .map(line => line.split('\t'))
         .map(values => {
-            values = values.concat(Array(9).fill('')).slice(0, 9);
+            values = values.concat(Array(3).fill('')).slice(0, 3);
             return {
                 caseId: values[0],
+                publicationDate: values[1] || null,
+                fine: values[2] || null
+            };
+        });
+}
+
+function parseArrests(tsv) {
+    return tsv.trim().split('\n')
+        .map(line => line.split('\t'))
+        .map(values => {
+            values = values.concat(Array(7).fill('')).slice(0, 7);
+            return {
+                arrestDate: values[0],
                 country: values[1] || null,
                 borderSign: values[2] || null,
-                arrestDate: values[3] || null,
-                publicationDate: values[4] || null,
-                distance: values[5] ? parseInt(values[5]) : null,
-                fine: values[6] || null,
-                position: values[7] ? {lat: parseFloat(values[7]), lng: parseFloat(values[8])} : null,
+                distance: values[3] ? parseInt(values[3]) : null,
+                position: {lat: parseFloat(values[4]), lng: parseFloat(values[5])},
+                caseIds: values[6].split(',')
             };
         });
 }
@@ -28,10 +39,31 @@ function parseBorderSigns(tsv) {
         }));
 }
 
-export function loadData(year) {
-    return fetch(`data-${year}.txt`)
+export async function loadArrests() {
+    const arrestsPromise = fetch(`arrests.txt`)
         .then(response => response.text())
-        .then(text => parseData(text));
+        .then(text => parseArrests(text));
+    const casesPromise = fetch(`cases.txt`)
+        .then(response => response.text())
+        .then(text => parseCases(text));
+
+    return Promise.all([arrestsPromise, casesPromise])
+        .then(async ([arrestsPromise, casesPromise]) => {
+            const arrests = await arrestsPromise;
+            const allCases = await casesPromise;
+            const caseMap = {};
+            allCases.forEach((courtCase) => caseMap[courtCase.caseId] = courtCase);
+
+            const result = [];
+            arrests.forEach(arrestRow => {
+                const {arrestDate, country, borderSign, distance, position, caseIds} = arrestRow;
+                const cases = [];
+                caseIds.forEach(caseId => cases.push(caseMap[caseId]));
+                result.push({id: arrestRow.caseIds[0], arrestDate, country, borderSign, position, distance, cases});
+            });
+            return result;
+        });
+
 }
 
 export function loadBorderSigns() {

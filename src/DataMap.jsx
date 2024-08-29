@@ -4,7 +4,7 @@ import Cluster from "./Cluster.jsx";
 import SelectedMarker from "./SelectedMarker.jsx";
 import BorderMarker from "./BorderMarker.jsx";
 
-function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
+function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
     const [showBorderSigns, setShowBorderSigns] = useState(false);
 
     const handleZoomChanged = useCallback(({map}) => {
@@ -16,13 +16,13 @@ function DataMap({selectedCase, onSelectCase, cases, borderSigns}) {
              region="UA" reuseMaps={true} streetViewControl={false} streetViewControlclassName="map"
              onZoomChanged={handleZoomChanged}>
 
-            <SelectedMarker selectedCase={selectedCase}/>
+            <SelectedMarker selectedArrest={selectedArrest}/>
 
             {showBorderSigns && borderSigns.map((borderSign) => (
                 <BorderMarker key={borderSign.country + borderSign.title}
                               borderSign={borderSign}/>
             ))}
-            <Cluster cases={cases} onSelectCase={onSelectCase}/>
+            <Cluster arrests={arrests} onSelectArrest={onSelectArrest}/>
         </Map>
     );
 }

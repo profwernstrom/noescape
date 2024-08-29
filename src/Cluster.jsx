@@ -11,28 +11,28 @@ function getMarkerOpacity(date) {
     return 1;
 }
 
-function Cluster({cases, onSelectCase}) {
+function Cluster({arrests, onSelectArrest}) {
     const map = useMap();
     const markerLibrary = useMapsLibrary('marker');
 
     useEffect(() => {
-        if (!map || !markerLibrary || !cases) return;
-        const markers = cases
-            .filter(courtCase => courtCase.position)
-            .map(courtCase => {
+        if (!map || !markerLibrary || !arrests) return;
+        const markers = arrests
+            .filter(arrest => arrest.position)
+            .map(arrest => {
                 const content = new markerLibrary.PinElement().element;
-                content.style.opacity = getMarkerOpacity(courtCase.arrestDate)
+                content.style.opacity = getMarkerOpacity(arrest.arrestDate)
                 const marker = new markerLibrary.AdvancedMarkerElement({
-                    position: courtCase.position,
-                    title: formatDate(courtCase.arrestDate) || null,
+                    position: arrest.position,
+                    title: formatDate(arrest.arrestDate) || null,
                     content: content,
                     gmpClickable: true,
                 });
-                marker.addListener("click", () => onSelectCase(courtCase));
+                marker.addListener("click", () => onSelectArrest(arrest));
                 return marker;
             });
         new MarkerClusterer({map, markers});
-    }, [map, markerLibrary, cases]);
+    }, [map, markerLibrary, arrests]);
 
     return (
         <></>

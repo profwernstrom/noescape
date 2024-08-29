@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 import {formatDate} from "./util.js";
 
-function DataTable({country, cases, selectedCase, onSelectCase}) {
 
-    const [sortBy, setSortBy] = useState('caseId');
+function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
+
+    const [sortBy, setSortBy] = useState('arrestDate');
     const [sortDirection, setSortDirection] = useState(1);
 
-    const filterData = (courtCase) => (courtCase.country || '?') === country;
+    const filterData = (arrest) => (arrest.country || '?') === country;
 
     const sortData = (a, b) => {
         let aa = a[sortBy];
@@ -18,9 +19,9 @@ function DataTable({country, cases, selectedCase, onSelectCase}) {
         return (aa === null) - (bb === null) || +(aa > bb) * sortDirection || -(aa < bb) * sortDirection;
     };
 
-    const scrollToCase = (courtCase) => {
-        if (courtCase) {
-            const tr = document.getElementById('tr-' + courtCase.caseId);
+    const scrollToArrest = (arrest) => {
+        if (arrest) {
+            const tr = document.getElementById('tr-' + arrest.id);
             if (tr) {
                 const rect = tr.getBoundingClientRect();
                 const isOutsideViewport = rect.top < 0 || rect.bottom > (window.innerHeight || document.documentElement.clientHeight);
@@ -40,8 +41,8 @@ function DataTable({country, cases, selectedCase, onSelectCase}) {
     };
 
     useEffect(() => {
-        scrollToCase(selectedCase);
-    }, [sortBy, sortDirection, selectedCase]);
+        scrollToArrest(selectedArrest);
+    }, [sortBy, sortDirection, selectedArrest]);
 
     return (
         <table>
@@ -50,21 +51,17 @@ function DataTable({country, cases, selectedCase, onSelectCase}) {
                 <th title="Номер прикордонного знаку" onClick={() => toggleSort('borderSign')}>Знак</th>
                 <th title="Дата та час затримання" onClick={() => toggleSort('arrestDate')}>Дата</th>
                 <th title="Відстань до кордону" onClick={() => toggleSort('distance')}>Відстань</th>
-                <th title="Призначений штраф" onClick={() => toggleSort('fine')}>Штраф</th>
-                <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
-            {cases.filter(filterData).sort(sortData).map((courtCase) => (
-                <tr key={courtCase.caseId} id={'tr-' + courtCase.caseId}
-                    className={courtCase === selectedCase ? 'selected' : ''}
-                    onClick={() => onSelectCase(courtCase)}>
-                    <td>{courtCase.borderSign}</td>
-                    <td>{formatDate(courtCase.arrestDate)}</td>
-                    <td>{courtCase.distance === null ? '?' : courtCase.distance}</td>
-                    <td>{courtCase.fine === null ? '?' : courtCase.fine}</td>
-                    <td><a href={'https://reyestr.court.gov.ua/Review/' + courtCase.caseId} title="Судове рішення">§</a>
-                    </td>
+            {arrests.filter(filterData).sort(sortData).map((arrest) => (
+                <tr key={arrest.id}
+                    id={'tr-' + arrest.id}
+                    className={arrest === selectedArrest ? 'selected' : ''}
+                    onClick={() => onSelectArrest(arrest)}>
+                    <td>{arrest.borderSign}</td>
+                    <td>{formatDate(arrest.arrestDate)}</td>
+                    <td>{arrest.distance || '?'}</td>
                 </tr>
             ))}
             </tbody>

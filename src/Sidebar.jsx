@@ -1,7 +1,7 @@
 import DataTable from "./DataTable.jsx";
 import {useState} from "react";
 
-function Sidebar({cases, selectedCase, onSelectCase}) {
+function Sidebar({arrests, selectedArrest, onSelectArrest}) {
 
     const [country, setCountry] = useState("PL")
     const [year, setYear] = useState("2024")
@@ -27,7 +27,8 @@ function Sidebar({cases, selectedCase, onSelectCase}) {
                 </label>
             </form>
             <div className="table-container">
-                <DataTable country={country} cases={cases} selectedCase={selectedCase} onSelectCase={onSelectCase}/>
+                <DataTable country={country} arrests={arrests} selectedArrest={selectedArrest}
+                           onSelectArrest={onSelectArrest}/>
             </div>
         </div>
     );
