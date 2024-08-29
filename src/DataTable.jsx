@@ -51,6 +51,7 @@ function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
                 <th title="Номер прикордонного знаку" onClick={() => toggleSort('borderSign')}>Знак</th>
                 <th title="Дата та час затримання" onClick={() => toggleSort('arrestDate')}>Дата</th>
                 <th title="Відстань до кордону" onClick={() => toggleSort('distance')}>Відстань</th>
+                <th title="Кількість затриманних" onClick={() => toggleSort('groupSize')}>Група</th>
             </tr>
             </thead>
             <tbody>
@@ -62,6 +63,7 @@ function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
                     <td>{arrest.borderSign}</td>
                     <td>{formatDate(arrest.arrestDate)}</td>
                     <td>{arrest.distance || '?'}</td>
+                    <td>{arrest.groupSize}</td>
                 </tr>
             ))}
             </tbody>

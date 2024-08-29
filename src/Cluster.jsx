@@ -27,7 +27,7 @@ function Cluster({arrests, onSelectArrest}) {
                 content.style.opacity = getMarkerOpacity(arrest.arrestDate)
                 const marker = new markerLibrary.AdvancedMarkerElement({
                     position: arrest.position,
-                    title: formatDate(arrest.arrestDate) || null,
+                    title: formatDate(arrest.arrestDate) + ' (' + arrest.groupSize + ')',
                     content: content,
                     gmpClickable: true,
                 });

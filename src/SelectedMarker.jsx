@@ -22,7 +22,7 @@ function SelectedMarker({selectedArrest}) {
                     <AdvancedMarker
                         ref={markerRef}
                         position={selectedArrest.position}
-                        title={formatDate(selectedArrest.arrestDate)}
+                        title={formatDate(selectedArrest.arrestDate) + ' (' + selectedArrest.groupSize + ')'}
                         zIndex={Number.MAX_SAFE_INTEGER}
                         onClick={() => setInfoOpen(true)}>
                         <Pin background={"yellow"} borderColor={"brown"} glyphColor={"orange"}></Pin>
@@ -39,13 +39,13 @@ function SelectedMarker({selectedArrest}) {
                             {selectedArrest && selectedArrest.cases && selectedArrest.cases.map(courtCase => (
                                 <div key={courtCase.caseId}>
                                     <br/>
+                                    <p><a target="_blank" rel="nofollow" title="Судове рішення"
+                                          href={'https://reyestr.court.gov.ua/Review/' + courtCase.caseId}>Судове
+                                        рішення</a>
                                     <p>Дата оприлюднення:&nbsp;
                                         {courtCase.publicationDate ? formatDate(courtCase.publicationDate) : '?'}</p>
                                     <p>Штраф:&nbsp;
                                         {courtCase.fine ? courtCase.fine + ' грн' : '?'}</p>
-                                    <p><a target="_blank" rel="nofollow" title="Судове рішення"
-                                          href={'https://reyestr.court.gov.ua/Review/' + courtCase.caseId}>Судове
-                                        рішення</a>
                                     </p>
                                 </div>
                             ))}

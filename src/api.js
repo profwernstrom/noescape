@@ -59,7 +59,8 @@ export async function loadArrests() {
                 const {arrestDate, country, borderSign, distance, position, caseIds} = arrestRow;
                 const cases = [];
                 caseIds.forEach(caseId => cases.push(caseMap[caseId]));
-                result.push({id: arrestRow.caseIds[0], arrestDate, country, borderSign, position, distance, cases});
+                const groupSize = cases.length;
+                result.push({id: arrestRow.caseIds[0], arrestDate, country, borderSign, position, distance, groupSize, cases});
             });
             return result;
         });
