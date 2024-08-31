@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
 import {formatDate} from "./util.js";
 
+function formatBorderSign(title) {
+
+}
 
 function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
 
@@ -12,9 +15,19 @@ function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
     const sortData = (a, b) => {
         let aa = a[sortBy];
         let bb = b[sortBy];
-        if (sortBy === 'borderSign' || sortBy === 'fine') {
-            aa = aa ? aa.padStart('7') : 'ZZZZZZZ'; // Put unknown to the end
-            bb = bb ? bb.padStart('7') : 'ZZZZZZZ';
+        if (sortBy === 'borderSign') {
+            let [aa1, aa2] = (aa || '99999').split('/').map(Number);
+            let [bb1, bb2] = (bb || '99999').split('/').map(Number);
+            aa2 = aa2 || 0;
+            bb2 = bb2 || 0;
+            if (aa1 !== bb1) {
+                return (aa1 - bb1) * sortDirection;
+            }
+            return (aa2 - bb2) * sortDirection;
+        }
+        if (sortBy === 'fine') {
+            aa = aa ? aa.padStart(7) : 'ZZZZZZZ'; // Put unknown to the end
+            bb = bb ? bb.padStart(7) : 'ZZZZZZZ';
         }
         return (aa === null) - (bb === null) || +(aa > bb) * sortDirection || -(aa < bb) * sortDirection;
     };
