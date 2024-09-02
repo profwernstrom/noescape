@@ -40,10 +40,10 @@ function parseBorderSigns(tsv) {
 }
 
 export async function loadArrests() {
-    const arrestsPromise = fetch(`arrests.txt`)
+    const arrestsPromise = fetch(`data/arrests.txt`)
         .then(response => response.text())
         .then(text => parseArrests(text));
-    const casesPromise = fetch(`cases.txt`)
+    const casesPromise = fetch(`data/cases.txt`)
         .then(response => response.text())
         .then(text => parseCases(text));
 
@@ -68,7 +68,7 @@ export async function loadArrests() {
 }
 
 export function loadBorderSigns() {
-    return fetch('signs.txt')
+    return fetch('data/signs.txt')
         .then(r => r.text())
         .then(tsv => parseBorderSigns(tsv));
 }
