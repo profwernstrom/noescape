@@ -118,6 +118,7 @@ header {
 
     .icons {
         display: block;
+        min-width: 160px;
 
         & a {
             padding-right: 10px;
