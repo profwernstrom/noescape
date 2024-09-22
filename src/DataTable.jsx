@@ -1,10 +1,6 @@
 import {useEffect, useState} from "react";
 import {formatDate} from "./util.js";
 
-function formatBorderSign(title) {
-
-}
-
 function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
 
     const [sortBy, setSortBy] = useState('arrestDate');

@@ -1,12 +1,21 @@
+import React, {useState} from 'react';
 import DataTable from "./DataTable.jsx";
-import {useState} from "react";
 
-function Sidebar({arrests, selectedArrest, onSelectArrest, period, onSelectPeriod}) {
-
+const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPeriod}) => {
     const [country, setCountry] = useState("PL")
 
     return (
         <div className="sidebar">
+            <div className="icons">
+                <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download><img
+                    src="excel-32x32.png" alt="excel" width="32" height="32"/></a>
+                <a href="data/arrests.kml" target="_blank" rel="nofollow" download><img
+                    src="kml-32x32.png" alt="kml" width="32" height="32"/></a>
+                <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow"><img
+                    src="github-mark-32x32.png" alt="github" width="32" height="32"/></a>
+                <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow"><img
+                    src="telegram-32x32.png" alt="github" width="32" height="32"/></a>
+            </div>
             <form>
                 <select value={country} onChange={e => setCountry(e.target.value)}>
                     <option value="PL">Польща</option>
@@ -15,7 +24,6 @@ function Sidebar({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
                     <option value="RO">Румунія</option>
                     <option value="MD">Молдова</option>
                     <option value="BY">Білорусь</option>
-                    <option value="?">невизначено</option>
                 </select>
                 <select value={period} onChange={e => onSelectPeriod(parseInt(e.target.value))}>
                     <option value="12">Останні 12 місяців</option>
@@ -29,9 +37,6 @@ function Sidebar({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
             </div>
         </div>
     );
-}
+};
 
-export default Sidebar
-
-
-
+export default Sidebar;

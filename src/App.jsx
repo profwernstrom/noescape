@@ -1,16 +1,16 @@
-import {useCallback, useEffect, useMemo, useState} from 'react'
-import Sidebar from "./Sidebar.jsx";
-import PageHeader from "./PageHeader.jsx";
-import DataMap from "./DataMap.jsx";
-import {loadBorderSigns, loadArrests} from "./api.js";
+import {useCallback, useEffect, useMemo, useState} from 'react';
+import PageHeader from './PageHeader.jsx';
+import Sidebar from './Sidebar';
+import {loadArrests, loadBorderSigns} from "./api.js";
 import {APIProvider} from "@vis.gl/react-google-maps";
-
+import DataMap from "./DataMap.jsx";
 
 function App() {
     const [allArrests, setAllArrests] = useState([]);
     const [period, setPeriod] = useState(6);
     const [borderSigns, setBorderSigns] = useState([]);
     const [selectedArrest, setSelectedArrest] = useState(null);
+    const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
 
     useEffect(() => {
         loadBorderSigns().then(setBorderSigns);
@@ -25,21 +25,38 @@ function App() {
 
     const handleSelectArrest = useCallback((selected) => {
         setSelectedArrest(selected);
+        if (window.innerWidth < 768) {
+            setSidebarOpen(false);
+        }
+    }, []);
+
+    const handleToggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+    };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setSidebarOpen(window.innerWidth >= 768);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     return (
-        <div className="container">
-            <PageHeader></PageHeader>
-            <div className="content">
-                <APIProvider apiKey={import.meta.env.VITE_MAPS_API_KEY}>
-                    <DataMap arrests={visibleArrests} selectedArrest={selectedArrest}
-                             onSelectArrest={handleSelectArrest} borderSigns={borderSigns}/>
-                </APIProvider>
-                <Sidebar arrests={visibleArrests} selectedArrest={selectedArrest}
-                         onSelectArrest={handleSelectArrest} onSelectPeriod={setPeriod}></Sidebar>
+        <div className="app">
+            <PageHeader onToggleSidebar={handleToggleSidebar}/>
+            <div className={sidebarOpen ? 'sidebar-open' : ''}>
+                <Sidebar isOpen={sidebarOpen} arrests={visibleArrests} selectedArrest={selectedArrest}
+                         onSelectArrest={handleSelectArrest} onSelectPeriod={setPeriod}/>
+                <div className="main-content">
+                    <APIProvider apiKey={import.meta.env.VITE_MAPS_API_KEY}>
+                        <DataMap arrests={visibleArrests} selectedArrest={selectedArrest}
+                                 onSelectArrest={handleSelectArrest} borderSigns={borderSigns}/>
+                    </APIProvider>
+                </div>
             </div>
         </div>
     );
 }
 
-export default App
+export default App;

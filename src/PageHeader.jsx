@@ -1,15 +1,9 @@
-function PageHeader() {
+function PageHeader({ onToggleSidebar }) {
     return (
         <header>
-            <h3>Судові справи про перетинання або спробу незаконного перетинання державного кордону України</h3>
-            <div className="icons">
-                <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download><img
-                    src="excel-32x32.png" alt="excel" width="32" height="32"/></a>
-                <a href="data/arrests.kml" target="_blank" rel="nofollow" download><img
-                    src="kml-32x32.png" alt="kml" width="32" height="32"/></a>
-                <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow"><img
-                    src="github-mark-32x32.png" alt="github" width="32" height="32"/></a>
-            </div>
+            <button className="menu-button" onClick={onToggleSidebar}>☰</button>
+            <h3 className="full-text">Судові справи про перетинання або спробу незаконного перетинання державного кордону України</h3>
+            <h3 className="short-text">Судові справи про спробу незаконного перетинання кордону</h3>
         </header>
     );
 }
