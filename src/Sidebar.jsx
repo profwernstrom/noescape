@@ -7,13 +7,13 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
     return (
         <div className="sidebar">
             <div className="icons">
-                <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download><img
+                <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download title="Excel файл з усіма даними"><img
                     src="excel-32x32.png" alt="excel" width="32" height="32"/></a>
-                <a href="data/arrests.kml" target="_blank" rel="nofollow" download><img
+                <a href="data/arrests.kml" target="_blank" rel="nofollow" download title="Завантажити у іншу мапу (Google Earth та інші)"><img
                     src="kml-32x32.png" alt="kml" width="32" height="32"/></a>
-                <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow"><img
+                <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow" title="Подивитись код на GitHub"><img
                     src="github-mark-32x32.png" alt="github" width="32" height="32"/></a>
-                <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow"><img
+                <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow" title="Зв'язатися з автором по Telegram"><img
                     src="telegram-32x32.png" alt="github" width="32" height="32"/></a>
             </div>
             <form>
