@@ -21,6 +21,10 @@ function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
             }
             return (aa2 - bb2) * sortDirection;
         }
+        if (sortBy === 'arrestDate') {
+            aa += a['arrestTime'];
+            bb += b['arrestTime'];
+        }
         if (sortBy === 'fine') {
             aa = aa ? aa.padStart(7) : 'ZZZZZZZ'; // Put unknown to the end
             bb = bb ? bb.padStart(7) : 'ZZZZZZZ';
@@ -70,7 +74,7 @@ function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
                     className={arrest === selectedArrest ? 'selected' : ''}
                     onClick={() => onSelectArrest(arrest)}>
                     <td>{arrest.borderSign}</td>
-                    <td>{formatDate(arrest.arrestDate)}</td>
+                    <td>{formatDate(arrest.arrestDate) + ' ' + arrest.arrestTime}</td>
                     <td>{arrest.distance || '?'}</td>
                     <td>{arrest.groupSize}</td>
                 </tr>

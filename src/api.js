@@ -15,14 +15,15 @@ function parseArrests(tsv) {
     return tsv.trim().split('\n')
         .map(line => line.split('\t'))
         .map(values => {
-            values = values.concat(Array(7).fill('')).slice(0, 7);
+            values = values.concat(Array(8).fill('')).slice(0, 8);
             return {
                 arrestDate: values[0],
-                country: values[1] || null,
-                borderSign: values[2] || null,
-                distance: values[3] ? parseInt(values[3]) : null,
-                position: {lat: parseFloat(values[4]), lng: parseFloat(values[5])},
-                caseIds: values[6].split(',')
+                arrestTime: values[1] ,
+                country: values[2] || null,
+                borderSign: values[3] || null,
+                distance: values[4] ? parseInt(values[4]) : null,
+                position: {lat: parseFloat(values[5]), lng: parseFloat(values[6])},
+                caseIds: values[7].split(',')
             };
         });
 }
@@ -56,11 +57,11 @@ export async function loadArrests() {
 
             const result = [];
             arrests.forEach(arrestRow => {
-                const {arrestDate, country, borderSign, distance, position, caseIds} = arrestRow;
+                const {arrestDate, arrestTime, country, borderSign, distance, position, caseIds} = arrestRow;
                 const cases = [];
                 caseIds.forEach(caseId => cases.push(caseMap[caseId]));
                 const groupSize = cases.length;
-                result.push({id: arrestRow.caseIds[0], arrestDate, country, borderSign, position, distance, groupSize, cases});
+                result.push({id: arrestRow.caseIds[0], arrestDate, arrestTime, country, borderSign, position, distance, groupSize, cases});
             });
             return result;
         });

@@ -32,7 +32,7 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
                 </select>
             </form>
             <div className="table-container">
-                <DataTable country={country} period={period} arrests={arrests} selectedArrest={selectedArrest}
+                <DataTable country={country} arrests={arrests} selectedArrest={selectedArrest}
                            onSelectArrest={onSelectArrest}/>
             </div>
         </div>
