@@ -74,7 +74,7 @@ function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
                     className={arrest === selectedArrest ? 'selected' : ''}
                     onClick={() => onSelectArrest(arrest)}>
                     <td>{arrest.borderSign}</td>
-                    <td>{formatDate(arrest.arrestDate) + ' ' + arrest.arrestTime}</td>
+                    <td>{formatDate(arrest.arrestDate) + ' ' + (arrest.arrestTime || '??:??')}</td>
                     <td>{arrest.distance || '?'}</td>
                     <td>{arrest.groupSize}</td>
                 </tr>
