@@ -7,7 +7,7 @@ import DataMap from "./DataMap.jsx";
 
 function App() {
     const [allArrests, setAllArrests] = useState([]);
-    const [period, setPeriod] = useState(6);
+    const [period, setPeriod] = useState(12);
     const [borderSigns, setBorderSigns] = useState([]);
     const [selectedArrest, setSelectedArrest] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
