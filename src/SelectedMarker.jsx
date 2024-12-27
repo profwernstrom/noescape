@@ -38,7 +38,7 @@ function SelectedMarker({selectedArrest}) {
                             {selectedArrest && selectedArrest.cases && selectedArrest.cases.map(courtCase => (
                                 <div key={courtCase.caseId}>
                                     <br/>
-                                    <p><a target="_blank" rel="nofollow" title="Судове рішення"
+                                    <p><a target={'noescape_' + courtCase.caseId} rel="nofollow" title="Судове рішення"
                                           href={'https://reyestr.court.gov.ua/Review/' + courtCase.caseId}>Судове
                                         рішення</a>
                                     <p>Дата оприлюднення:&nbsp;
