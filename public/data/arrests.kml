@@ -17,11 +17,17 @@
         <Placemark><name>08.01.25 15:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124454368">Справа №714/34/25</a><br/></description><Point><coordinates>26.279531,48.194095</coordinates></Point></Placemark>
         <Placemark><name>13.01.25 21:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
-<a href="https://reyestr.court.gov.ua/Review/124546159">Справа №307/199/25</a><br/></description><Point><coordinates>23.73825,47.995415</coordinates></Point></Placemark>
+<a href="https://reyestr.court.gov.ua/Review/124546159">Справа №307/199/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124562344">Справа №307/198/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124562352">Справа №307/197/25</a><br/></description><Point><coordinates>23.73825,47.995415</coordinates></Point></Placemark>
         <Placemark><name>03.01.25 22:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124375960">Справа №297/104/25</a><br/></description><Point><coordinates>22.53598,48.212116</coordinates></Point></Placemark>
         <Placemark><name>05.01.25 08:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124387397">Справа №511/147/25</a><br/></description><Point><coordinates>29.949937,46.842569</coordinates></Point></Placemark>
+        <Placemark><name>02.01.25 14:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124562409">Справа №308/888/25</a><br/></description><Point><coordinates>22.374028,48.681817</coordinates></Point></Placemark>
+        <Placemark><name>17.01.25 09:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124580586">Справа №305/227/25</a><br/></description><Point><coordinates>24.345074,48.259563</coordinates></Point></Placemark>
         <Placemark><name>04.01.25 22:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124231835">Справа №946/52/25</a><br/></description><Point><coordinates>28.653105,45.249512</coordinates></Point></Placemark>
         <Placemark><name>04.01.25 10:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -30,6 +36,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124481401">Справа №715/87/25</a><br/></description><Point><coordinates>26.012641,48.111123</coordinates></Point></Placemark>
         <Placemark><name>11.01.25 12:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124507234">Справа №511/178/25</a><br/></description><Point><coordinates>30.089374,46.725129</coordinates></Point></Placemark>
+        <Placemark><name>04.01.25 09:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124587531">Справа №719/74/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>01.01.25 12:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124298834">Справа №715/38/25</a><br/></description><Point><coordinates>26.012641,48.111123</coordinates></Point></Placemark>
         <Placemark><name>13.01.25 20:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -49,17 +57,25 @@
 <a href="https://reyestr.court.gov.ua/Review/124443298">Справа №455/34/25</a><br/></description><Point><coordinates>22.852679,49.534686</coordinates></Point></Placemark>
         <Placemark><name>11.01.25 18:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124425766">Справа №448/60/25</a><br/></description><Point><coordinates>22.954754,49.802912</coordinates></Point></Placemark>
+        <Placemark><name>12.01.25 17:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593934">Справа №719/86/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
+        <Placemark><name>18.01.25 22:25</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124579203">Справа №503/103/25</a><br/></description><Point><coordinates>29.187528,47.942148</coordinates></Point></Placemark>
         <Placemark><name>09.01.25 16:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124480057">Справа №938/147/25</a><br/></description><Point><coordinates>24.573013,48.058266</coordinates></Point></Placemark>
         <Placemark><name>06.01.25 17:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124421877">Справа №715/65/25</a><br/></description><Point><coordinates>26.012641,48.111123</coordinates></Point></Placemark>
         <Placemark><name>03.01.25 19:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124476713">Справа №305/95/25</a><br/></description><Point><coordinates>24.516033,48.035701</coordinates></Point></Placemark>
+        <Placemark><name>18.01.25 12:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124587528">Справа №719/95/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>09.01.25 22:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124451748">Справа №514/64/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124451749">Справа №514/65/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124451750">Справа №514/63/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124451751">Справа №514/66/25</a><br/></description><Point><coordinates>29.014247,46.24876</coordinates></Point></Placemark>
+        <Placemark><name>01.01.25 12:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593895">Справа №723/212/25</a><br/></description><Point><coordinates>25.574116,48.009608</coordinates></Point></Placemark>
         <Placemark><name>06.01.25 19:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124449067">Справа №715/82/25</a><br/></description><Point><coordinates>25.904785,47.970693</coordinates></Point></Placemark>
         <Placemark><name>04.01.25 20:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -69,6 +85,9 @@
 <a href="https://reyestr.court.gov.ua/Review/124266916">Справа №458/44/25</a><br/></description><Point><coordinates>22.757143,49.182582</coordinates></Point></Placemark>
         <Placemark><name>04.01.25 09:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124477012">Справа №448/69/25</a><br/></description><Point><coordinates>22.982313,49.800796</coordinates></Point></Placemark>
+        <Placemark><name>09.01.25 20:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593940">Справа №719/84/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124593942">Справа №719/83/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>11.01.25 10:25</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124456139">Справа №503/52/25</a><br/></description><Point><coordinates>29.11144,48.037788</coordinates></Point></Placemark>
         <Placemark><name>10.01.25 08:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -76,8 +95,12 @@
         <Placemark><name>01.01.25 14:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124298970">Справа №719/27/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124298971">Справа №null</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
+        <Placemark><name>13.01.25 12:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593937">Справа №719/91/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>15.01.25 13:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124545953">Справа №511/210/25</a><br/></description><Point><coordinates>30.083292,46.810132</coordinates></Point></Placemark>
+        <Placemark><name>08.01.25 00:05</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124580507">Справа №297/190/25</a><br/></description><Point><coordinates>22.594568,48.168059</coordinates></Point></Placemark>
         <Placemark><name>12.01.25 19:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124476708">Справа №305/178/25</a><br/></description><Point><coordinates>24.212894,48.05459</coordinates></Point></Placemark>
         <Placemark><name>16.01.25 02:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -90,13 +113,19 @@
 <a href="https://reyestr.court.gov.ua/Review/124247030">Справа №946/51/25</a><br/></description><Point><coordinates>28.672854,45.406523</coordinates></Point></Placemark>
         <Placemark><name>03.01.25 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124552338">Справа №723/237/25</a><br/></description><Point><coordinates>25.891273,48.026325</coordinates></Point></Placemark>
+        <Placemark><name>06.01.25 10:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124567687">Справа №506/55/25</a><br/></description><Point><coordinates>29.184525,47.571571</coordinates></Point></Placemark>
         <Placemark><name>07.01.25 15:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124305097">Справа №949/91/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124305099">Справа №949/92/25</a><br/></description><Point><coordinates>26.412233,51.723914</coordinates></Point></Placemark>
+        <Placemark><name>17.01.25 13:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124580589">Справа №305/236/25</a><br/></description><Point><coordinates>24.411971,48.273574</coordinates></Point></Placemark>
         <Placemark><name>06.01.25 09:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124544117">Справа №454/122/25</a><br/></description><Point><coordinates>24.008935,50.381521</coordinates></Point></Placemark>
         <Placemark><name>06.01.25 18:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124444654">Справа №503/23/25</a><br/></description><Point><coordinates>28.919047,48.122874</coordinates></Point></Placemark>
+        <Placemark><name>02.01.25 15:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124578241">Справа №309/175/25</a><br/></description><Point><coordinates>23.32656,48.037288</coordinates></Point></Placemark>
         <Placemark><name>04.01.25 17:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124350609">Справа №138/112/25</a><br/></description><Point><coordinates>27.695112,48.454256</coordinates></Point></Placemark>
         <Placemark><name>04.01.25 14:35</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -107,24 +136,36 @@
 <a href="https://reyestr.court.gov.ua/Review/124454365">Справа №714/33/25</a><br/></description><Point><coordinates>26.155668,48.037382</coordinates></Point></Placemark>
         <Placemark><name>02.01.25 11:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124461400">Справа №298/72/25</a><br/></description><Point><coordinates>22.491689,48.898049</coordinates></Point></Placemark>
+        <Placemark><name>17.01.25 19:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124587535">Справа №null</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>05.01.25 00:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124552336">Справа №723/209/25</a><br/></description><Point><coordinates>25.891273,48.026325</coordinates></Point></Placemark>
         <Placemark><name>14.01.25 00:55</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124464449">Справа №455/82/25</a><br/></description><Point><coordinates>22.893335,49.424885</coordinates></Point></Placemark>
+        <Placemark><name>09.01.25 20:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593890">Справа №723/216/25</a><br/></description><Point><coordinates>25.626227,47.984832</coordinates></Point></Placemark>
         <Placemark><name>02.01.25 12:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124225000">Справа №496/90/25</a><br/></description><Point><coordinates>30.128085,46.513423</coordinates></Point></Placemark>
+        <Placemark><name>06.01.25 11:55</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124587533">Справа №719/82/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>09.01.25 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124552340">Справа №723/278/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124552341">Справа №723/280/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124552343">Справа №723/262/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124552344">Справа №723/261/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124552345">Справа №723/246/25</a><br/></description><Point><coordinates>25.891273,48.026325</coordinates></Point></Placemark>
+        <Placemark><name>02.01.25 14:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124561737">Справа №302/36/25</a><br/></description><Point><coordinates>23.59703,48.6695</coordinates></Point></Placemark>
         <Placemark><name>14.01.25 07:18</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124500429">Справа №503/69/25</a><br/></description><Point><coordinates>29.125998,47.999989</coordinates></Point></Placemark>
         <Placemark><name>06.01.25 19:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124461512">Справа №305/142/25</a><br/></description><Point><coordinates>24.212894,48.05459</coordinates></Point></Placemark>
         <Placemark><name>05.01.25 13:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124461511">Справа №305/158/25</a><br/></description><Point><coordinates>24.212894,48.05459</coordinates></Point></Placemark>
+        <Placemark><name>16.01.25 15:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124568298">Справа №511/207/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124568308">Справа №511/208/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124568309">Справа №511/209/25</a><br/></description><Point><coordinates>30.185193,46.692647</coordinates></Point></Placemark>
         <Placemark><name>01.01.25 20:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124480053">Справа №938/121/25</a><br/></description><Point><coordinates>24.590737,48.001951</coordinates></Point></Placemark>
         <Placemark><name>08.01.25 21:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -137,6 +178,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124451470">Справа №496/257/25</a><br/></description><Point><coordinates>30.208984,46.398197</coordinates></Point></Placemark>
         <Placemark><name>04.01.25 17:35</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124504922">Справа №715/67/25</a><br/></description><Point><coordinates>26.000391,48.061565</coordinates></Point></Placemark>
+        <Placemark><name>11.01.25 15:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593931">Справа №719/87/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>06.01.25 23:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124456126">Справа №503/29/25</a><br/></description><Point><coordinates>29.187528,47.942148</coordinates></Point></Placemark>
         <Placemark><name>08.01.25 10:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -148,17 +191,28 @@
         <Placemark><name>09.01.25 21:55</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124481397">Справа №715/90/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124481402">Справа №715/85/25</a><br/></description><Point><coordinates>26.127974,47.988412</coordinates></Point></Placemark>
+        <Placemark><name>14.01.25 12:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124587529">Справа №719/92/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>06.01.25 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124552332">Справа №723/218/25</a><br/></description><Point><coordinates>25.891273,48.026325</coordinates></Point></Placemark>
+        <Placemark><name>19.01.25 18:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124568310">Справа №511/206/25</a><br/></description><Point><coordinates>30.089374,46.725129</coordinates></Point></Placemark>
         <Placemark><name>16.01.25 18:35</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
-<a href="https://reyestr.court.gov.ua/Review/124545865">Справа №503/96/25</a><br/></description><Point><coordinates>29.006351,47.98647</coordinates></Point></Placemark>
+<a href="https://reyestr.court.gov.ua/Review/124545865">Справа №503/96/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124567636">Справа №503/94/25</a><br/></description><Point><coordinates>29.006351,47.98647</coordinates></Point></Placemark>
         <Placemark><name>10.01.25 20:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124545368">Справа №495/352/25</a><br/></description><Point><coordinates>29.84381,46.369912</coordinates></Point></Placemark>
         <Placemark><name>05.01.25 04:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124480052">Справа №938/136/25</a><br/></description><Point><coordinates>24.558788,47.977145</coordinates></Point></Placemark>
+        <Placemark><name>15.01.25 18:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593812">Справа №717/2993/24</a><br/></description><Point><coordinates>26.919996,48.421229</coordinates></Point></Placemark>
         <Placemark><name>03.01.25 13:55</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124480054">Справа №938/123/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124500329">Справа №938/124/25</a><br/></description><Point><coordinates>24.711539,47.932226</coordinates></Point></Placemark>
+        <Placemark><name>09.01.25 12:25</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593811">Справа №717/178/25</a><br/></description><Point><coordinates>26.603723,48.424563</coordinates></Point></Placemark>
+        <Placemark><name>09.01.25 09:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593946">Справа №719/81/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>10.01.25 08:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124513450">Справа №715/121/25</a><br/></description><Point><coordinates>25.904785,47.970693</coordinates></Point></Placemark>
     </Folder>
@@ -176,6 +230,9 @@
 <a href="https://reyestr.court.gov.ua/Review/124418684">Справа №724/141/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>28.12.24 17:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124187735">Справа №496/8135/24</a><br/></description><Point><coordinates>30.060768,46.545446</coordinates></Point></Placemark>
+        <Placemark><name>30.12.24 20:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124567685">Справа №506/32/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124567686">Справа №506/31/25</a><br/></description><Point><coordinates>29.555515,47.61517</coordinates></Point></Placemark>
         <Placemark><name>15.12.24 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124139043">Справа №723/5946/24</a><br/></description><Point><coordinates>25.847813,48.230743</coordinates></Point></Placemark>
         <Placemark><name>03.12.24 15:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -282,6 +339,10 @@
 <a href="https://reyestr.court.gov.ua/Review/123716892">Справа №717/3078/24</a><br/></description><Point><coordinates>26.842133,48.44351</coordinates></Point></Placemark>
         <Placemark><name>01.12.24 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124131053">Справа №723/5718/24</a><br/></description><Point><coordinates>25.891273,48.026325</coordinates></Point></Placemark>
+        <Placemark><name>09.12.24 22:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124580674">Справа №309/212/25</a><br/></description><Point><coordinates>23.419665,48.050801</coordinates></Point></Placemark>
+        <Placemark><name>04.12.24 19:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124561715">Справа №302/46/25</a><br/></description><Point><coordinates>23.59703,48.6695</coordinates></Point></Placemark>
         <Placemark><name>04.12.24 18:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123776829">Справа №511/4506/24</a><br/></description><Point><coordinates>29.968359,46.831678</coordinates></Point></Placemark>
         <Placemark><name>09.12.24 09:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -290,6 +351,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124378207">Справа №724/126/25</a><br/></description><Point><coordinates>26.58415,48.253347</coordinates></Point></Placemark>
         <Placemark><name>08.12.24 15:05</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124504492">Справа №938/65/25</a><br/></description><Point><coordinates>24.780845,48.097616</coordinates></Point></Placemark>
+        <Placemark><name>03.12.24 10:35</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124562374">Справа №308/838/25</a><br/></description><Point><coordinates>22.291384,48.597854</coordinates></Point></Placemark>
         <Placemark><name>27.12.24 14:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124546150">Справа №305/117/25</a><br/></description><Point><coordinates>24.282444,48.149598</coordinates></Point></Placemark>
         <Placemark><name>12.12.24 04:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -352,6 +415,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124315403">Справа №305/4835/24</a><br/></description><Point><coordinates>24.411971,48.273574</coordinates></Point></Placemark>
         <Placemark><name>13.12.24 23:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124063024">Справа №721/1218/24</a><br/></description><Point><coordinates>25.191706,47.898713</coordinates></Point></Placemark>
+        <Placemark><name>05.12.24 13:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593911">Справа №724/193/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>27.12.24 18:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124298976">Справа №719/20/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>04.12.24 13:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -439,6 +504,8 @@
         <Placemark><name>18.12.24 19:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124480063">Справа №938/45/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124504495">Справа №938/75/25</a><br/></description><Point><coordinates>24.959188,48.067873</coordinates></Point></Placemark>
+        <Placemark><name>25.12.24 18:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124568450">Справа №517/76/25</a><br/></description><Point><coordinates>29.612225,47.265449</coordinates></Point></Placemark>
         <Placemark><name>11.12.24 15:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124424419">Справа №142/7/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124424420">Справа №142/8/25</a><br/></description><Point><coordinates>28.77875,48.132632</coordinates></Point></Placemark>
@@ -548,6 +615,8 @@
 <a href="https://reyestr.court.gov.ua/Review/123743575">Справа №713/4699/24</a><br/></description><Point><coordinates>25.394192,48.012054</coordinates></Point></Placemark>
         <Placemark><name>16.12.24 23:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124449177">Справа №724/169/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
+        <Placemark><name>28.12.24 13:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124561721">Справа №302/39/25</a><br/></description><Point><coordinates>23.59703,48.6695</coordinates></Point></Placemark>
         <Placemark><name>03.12.24 13:48</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123575689">Справа №496/7711/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124403552">Справа №496/7711/24</a><br/></description><Point><coordinates>30.353833,46.532312</coordinates></Point></Placemark>
@@ -631,6 +700,8 @@
 <a href="https://reyestr.court.gov.ua/Review/123833565">Справа №307/5346/24</a><br/></description><Point><coordinates>23.594537,48.019938</coordinates></Point></Placemark>
         <Placemark><name>20.12.24 04:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124131397">Справа №297/5123/24</a><br/></description><Point><coordinates>22.602206,48.14512</coordinates></Point></Placemark>
+        <Placemark><name>13.12.24 13:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124581816">Справа №309/214/25</a><br/></description><Point><coordinates>23.336447,48.025227</coordinates></Point></Placemark>
         <Placemark><name>21.12.24 11:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124480060">Справа №938/49/25</a><br/></description><Point><coordinates>24.780845,48.097616</coordinates></Point></Placemark>
         <Placemark><name>05.12.24 16:55</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -739,6 +810,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124320685">Справа №298/2178/24</a><br/></description><Point><coordinates>22.460553,48.924836</coordinates></Point></Placemark>
         <Placemark><name>03.12.24 20:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124269582">Справа №571/2721/24</a><br/></description><Point><coordinates>27.352907,51.477593</coordinates></Point></Placemark>
+        <Placemark><name>27.12.24 12:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593894">Справа №723/256/25</a><br/></description><Point><coordinates>25.891273,48.026325</coordinates></Point></Placemark>
         <Placemark><name>20.12.24 12:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124486495">Справа №305/92/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124543595">Справа №305/118/25</a><br/>
@@ -886,6 +959,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124353362">Справа №717/76/25</a><br/></description><Point><coordinates>26.603723,48.424563</coordinates></Point></Placemark>
         <Placemark><name>17.12.24 19:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124131398">Справа №297/5128/24</a><br/></description><Point><coordinates>22.596583,48.131077</coordinates></Point></Placemark>
+        <Placemark><name>02.12.24 11:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124580662">Справа №309/197/25</a><br/></description><Point><coordinates>23.263795,48.101383</coordinates></Point></Placemark>
         <Placemark><name>03.12.24 19:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124405550">Справа №717/101/25</a><br/></description><Point><coordinates>26.603723,48.424563</coordinates></Point></Placemark>
         <Placemark><name>07.12.24 20:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -954,12 +1029,17 @@
 <a href="https://reyestr.court.gov.ua/Review/123492909">Справа №142/1050/24</a><br/></description><Point><coordinates>28.591886,48.17305</coordinates></Point></Placemark>
         <Placemark><name>11.12.24 21:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124486493">Справа №305/81/25</a><br/></description><Point><coordinates>24.411971,48.273574</coordinates></Point></Placemark>
+        <Placemark><name>12.12.24 01:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124567683">Справа №506/41/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124567684">Справа №506/19/25</a><br/></description><Point><coordinates>29.377281,47.485817</coordinates></Point></Placemark>
         <Placemark><name>22.12.24 17:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124522217">Справа №717/63/25</a><br/></description><Point><coordinates>26.603723,48.424563</coordinates></Point></Placemark>
         <Placemark><name>22.12.24 12:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124062960">Справа №715/4262/24</a><br/></description><Point><coordinates>26.012641,48.111123</coordinates></Point></Placemark>
         <Placemark><name>05.12.24 13:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123908248">Справа №297/5012/24</a><br/></description><Point><coordinates>22.515317,48.227036</coordinates></Point></Placemark>
+        <Placemark><name>27.12.24 20:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593786">Справа №714/91/25</a><br/></description><Point><coordinates>26.209183,48.083416</coordinates></Point></Placemark>
         <Placemark><name>12.12.24 19:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123959078">Справа №715/4175/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123959083">Справа №715/4177/24</a><br/>
@@ -1042,6 +1122,9 @@
 <a href="https://reyestr.court.gov.ua/Review/124134333">Справа №305/4832/24</a><br/></description><Point><coordinates>24.171128,47.937881</coordinates></Point></Placemark>
         <Placemark><name>05.12.24 07:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123886580">Справа №724/4405/24</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
+        <Placemark><name>16.12.24 14:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124561725">Справа №302/44/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124561731">Справа №302/43/25</a><br/></description><Point><coordinates>23.59703,48.6695</coordinates></Point></Placemark>
         <Placemark><name>01.12.24 16:35</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124063023">Справа №721/1214/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124139002">Справа №721/1245/24</a><br/></description><Point><coordinates>25.298447,47.9114</coordinates></Point></Placemark>
@@ -1065,7 +1148,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124522396">Справа №724/194/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>22.12.24 10:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124525536">Справа №302/45/25</a><br/>
-<a href="https://reyestr.court.gov.ua/Review/124546102">Справа №302/48/25</a><br/></description><Point><coordinates>23.59703,48.6695</coordinates></Point></Placemark>
+<a href="https://reyestr.court.gov.ua/Review/124546102">Справа №302/48/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124561735">Справа №302/41/25</a><br/></description><Point><coordinates>23.59703,48.6695</coordinates></Point></Placemark>
         <Placemark><name>30.12.24 16:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124543587">Справа №305/91/25</a><br/></description><Point><coordinates>24.411971,48.273574</coordinates></Point></Placemark>
         <Placemark><name>01.12.24 18:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -1114,6 +1198,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124543483">Справа №298/7/25</a><br/></description><Point><coordinates>22.617462,49.011842</coordinates></Point></Placemark>
         <Placemark><name>29.12.24 04:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124298944">Справа №719/42/25</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
+        <Placemark><name>10.12.24 14:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124562436">Справа №308/848/25</a><br/></description><Point><coordinates>22.291384,48.597854</coordinates></Point></Placemark>
         <Placemark><name>14.12.24 07:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124341920">Справа №724/112/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>21.12.24 10:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -1216,6 +1302,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124418683">Справа №724/145/25</a><br/></description><Point><coordinates>26.58415,48.253347</coordinates></Point></Placemark>
         <Placemark><name>28.12.24 15:55</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124317202">Справа №497/66/25</a><br/></description><Point><coordinates>28.568863,45.680811</coordinates></Point></Placemark>
+        <Placemark><name>24.12.24 16:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124562346">Справа №307/118/25</a><br/></description><Point><coordinates>23.80131,47.986279</coordinates></Point></Placemark>
         <Placemark><name>12.12.24 17:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123899876">Справа №496/7911/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123899881">Справа №496/7912/24</a><br/></description><Point><coordinates>30.265819,46.384627</coordinates></Point></Placemark>
@@ -1232,7 +1320,8 @@
         <Placemark><name>01.12.24 02:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123968039">Справа №724/4452/24</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>08.12.24 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
-<a href="https://reyestr.court.gov.ua/Review/123850828">Справа №723/5805/24</a><br/></description><Point><coordinates>25.847813,48.230743</coordinates></Point></Placemark>
+<a href="https://reyestr.court.gov.ua/Review/123850828">Справа №723/5805/24</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124593896">Справа №723/219/25</a><br/></description><Point><coordinates>25.847813,48.230743</coordinates></Point></Placemark>
         <Placemark><name>16.12.24 17:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124454567">Справа №724/162/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>22.12.24 13:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -1290,6 +1379,8 @@
 <a href="https://reyestr.court.gov.ua/Review/123665075">Справа №503/2643/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123665076">Справа №503/2644/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123665077">Справа №503/2645/24</a><br/></description><Point><coordinates>29.199599,47.931753</coordinates></Point></Placemark>
+        <Placemark><name>01.12.24 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124581812">Справа №308/232/25</a><br/></description><Point><coordinates>22.380612,48.680668</coordinates></Point></Placemark>
         <Placemark><name>27.12.24 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124504944">Справа №723/152/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124504948">Справа №723/151/25</a><br/>
@@ -1383,6 +1474,9 @@
 <a href="https://reyestr.court.gov.ua/Review/123794833">Справа №307/5348/24</a><br/></description><Point><coordinates>23.528053,48.02266</coordinates></Point></Placemark>
         <Placemark><name>16.12.24 12:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124454575">Справа №724/165/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
+        <Placemark><name>08.12.24 22:55</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124561852">Справа №304/28/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124561853">Справа №304/22/25</a><br/></description><Point><coordinates>22.442188,48.742252</coordinates></Point></Placemark>
         <Placemark><name>21.12.24 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124481524">Справа №723/159/25</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124504947">Справа №723/156/25</a><br/></description><Point><coordinates>25.891273,48.026325</coordinates></Point></Placemark>
@@ -1407,9 +1501,12 @@
 <a href="https://reyestr.court.gov.ua/Review/124272594">Справа №724/48/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>24.12.24 11:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124421900">Справа №717/113/25</a><br/>
-<a href="https://reyestr.court.gov.ua/Review/124421904">Справа №717/117/25</a><br/></description><Point><coordinates>26.603723,48.424563</coordinates></Point></Placemark>
+<a href="https://reyestr.court.gov.ua/Review/124421904">Справа №717/117/25</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124593810">Справа №717/112/25</a><br/></description><Point><coordinates>26.603723,48.424563</coordinates></Point></Placemark>
         <Placemark><name>09.12.24 17:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124325902">Справа №724/84/25</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
+        <Placemark><name>10.12.24 19:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124561910">Справа №305/106/25</a><br/></description><Point><coordinates>24.411971,48.273574</coordinates></Point></Placemark>
         <Placemark><name>19.12.24 18:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124169274">Справа №303/10264/24</a><br/></description><Point><coordinates>22.698102,48.479291</coordinates></Point></Placemark>
         <Placemark><name>14.12.24 17:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -1439,8 +1536,12 @@
 <a href="https://reyestr.court.gov.ua/Review/124456208">Справа №506/1301/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124456210">Справа №506/1302/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124456212">Справа №506/1303/24</a><br/></description><Point><coordinates>29.29837,47.665885</coordinates></Point></Placemark>
+        <Placemark><name>14.12.24 13:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124575139">Справа №307/90/25</a><br/></description><Point><coordinates>23.876531,47.945271</coordinates></Point></Placemark>
         <Placemark><name>23.12.24 15:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124148900">Справа №946/10234/24</a><br/></description><Point><coordinates>28.898282,45.298157</coordinates></Point></Placemark>
+        <Placemark><name>31.12.24 13:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124575143">Справа №307/88/25</a><br/></description><Point><coordinates>23.876531,47.945271</coordinates></Point></Placemark>
         <Placemark><name>07.12.24 13:35</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123703078">Справа №517/1601/24</a><br/></description><Point><coordinates>29.870484,47.332369</coordinates></Point></Placemark>
         <Placemark><name>24.12.24 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -1782,6 +1883,8 @@
 <a href="https://reyestr.court.gov.ua/Review/123113552">Справа №511/4277/24</a><br/></description><Point><coordinates>29.991801,46.734219</coordinates></Point></Placemark>
         <Placemark><name>03.11.24 09:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123315530">Справа №303/9503/24</a><br/></description><Point><coordinates>22.698102,48.479291</coordinates></Point></Placemark>
+        <Placemark><name>11.11.24 17:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124581802">Справа №308/763/25</a><br/></description><Point><coordinates>22.291384,48.597854</coordinates></Point></Placemark>
         <Placemark><name>10.11.24 17:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123334558">Справа №495/10552/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123334560">Справа №495/10553/24</a><br/></description><Point><coordinates>30.085778,46.384178</coordinates></Point></Placemark>
@@ -2719,6 +2822,8 @@
         <Placemark><name>14.11.24 08:15</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123214084">Справа №503/2511/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123247436">Справа №503/2510/24</a><br/></description><Point><coordinates>29.085404,48.027521</coordinates></Point></Placemark>
+        <Placemark><name>19.11.24 19:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593843">Справа №721/1211/24</a><br/></description><Point><coordinates>25.132598,47.887911</coordinates></Point></Placemark>
         <Placemark><name>20.11.24 10:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123896257">Справа №719/915/24</a><br/></description><Point><coordinates>27.441389,48.578085</coordinates></Point></Placemark>
         <Placemark><name>27.11.24 06:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -2957,6 +3062,8 @@
 <a href="https://reyestr.court.gov.ua/Review/123420415">Справа №724/4195/24</a><br/></description><Point><coordinates>26.58415,48.253347</coordinates></Point></Placemark>
         <Placemark><name>21.11.24 05:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123608362">Справа №724/4288/24</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
+        <Placemark><name>18.11.24 16:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124580506">Справа №297/4787/24</a><br/></description><Point><coordinates>22.556886,48.208003</coordinates></Point></Placemark>
         <Placemark><name>30.11.24 21:05</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124386360">Справа №454/4520/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/124386363">Справа №454/4518/24</a><br/></description><Point><coordinates>23.685738,50.303213</coordinates></Point></Placemark>
@@ -3035,6 +3142,9 @@
 <a href="https://reyestr.court.gov.ua/Review/122947029">Справа №724/3989/24</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>02.11.24 15:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123955918">Справа №938/1863/24</a><br/></description><Point><coordinates>24.959188,48.067873</coordinates></Point></Placemark>
+        <Placemark><name>28.11.24 18:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593851">Справа №721/1231/24</a><br/>
+<a href="https://reyestr.court.gov.ua/Review/124593852">Справа №721/1233/24</a><br/></description><Point><coordinates>25.292109,47.966814</coordinates></Point></Placemark>
         <Placemark><name>11.11.24 17:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/122916559">Справа №938/1475/24</a><br/></description><Point><coordinates>24.819694,48.154323</coordinates></Point></Placemark>
         <Placemark><name>09.11.24 19:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -3712,6 +3822,8 @@
 <a href="https://reyestr.court.gov.ua/Review/124217593">Справа №503/2579/24</a><br/></description><Point><coordinates>29.11144,48.037788</coordinates></Point></Placemark>
         <Placemark><name>15.11.24 10:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123292406">Справа №724/4124/24</a><br/></description><Point><coordinates>26.58415,48.253347</coordinates></Point></Placemark>
+        <Placemark><name>09.11.24 22:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124593809">Справа №717/176/25</a><br/></description><Point><coordinates>26.693151,48.415028</coordinates></Point></Placemark>
         <Placemark><name>03.11.24 14:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/124013067">Справа №298/2152/24</a><br/></description><Point><coordinates>22.489767,48.893067</coordinates></Point></Placemark>
         <Placemark><name>14.11.24 18:10</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -3812,6 +3924,8 @@
 <a href="https://reyestr.court.gov.ua/Review/123001345">Справа №724/4003/24</a><br/></description><Point><coordinates>26.479553,48.541247</coordinates></Point></Placemark>
         <Placemark><name>22.11.24 10:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123644541">Справа №305/4761/24</a><br/></description><Point><coordinates>24.212894,48.05459</coordinates></Point></Placemark>
+        <Placemark><name>21.11.24 13:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124581801">Справа №308/793/25</a><br/></description><Point><coordinates>22.291384,48.597854</coordinates></Point></Placemark>
         <Placemark><name>05.11.24 15:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/122886099">Справа №297/4582/24</a><br/></description><Point><coordinates>22.657506,48.193079</coordinates></Point></Placemark>
         <Placemark><name>14.11.24 05:45</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -4018,11 +4132,15 @@
         <Placemark><name>06.11.24 19:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123199489">Справа №305/4519/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123215639">Справа №305/4520/24</a><br/></description><Point><coordinates>24.212894,48.05459</coordinates></Point></Placemark>
+        <Placemark><name>25.11.24 14:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124561587">Справа №299/106/25</a><br/></description><Point><coordinates>23.177973,48.120982</coordinates></Point></Placemark>
         <Placemark><name>24.11.24 10:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123401020">Справа №503/2583/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123401022">Справа №503/2582/24</a><br/></description><Point><coordinates>29.214446,47.924932</coordinates></Point></Placemark>
         <Placemark><name>07.11.24 15:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123038058">Справа №496/7240/24</a><br/></description><Point><coordinates>30.107697,46.523566</coordinates></Point></Placemark>
+        <Placemark><name>28.11.24 23:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124581800">Справа №308/809/25</a><br/></description><Point><coordinates>22.380612,48.680668</coordinates></Point></Placemark>
         <Placemark><name>08.11.24 22:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123397388">Справа №305/4568/24</a><br/></description><Point><coordinates>24.411971,48.273574</coordinates></Point></Placemark>
         <Placemark><name>18.11.24 19:55</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
@@ -5090,6 +5208,8 @@
 <a href="https://reyestr.court.gov.ua/Review/123359324">Справа №713/4416/24</a><br/></description><Point><coordinates>25.395282,48.20359</coordinates></Point></Placemark>
         <Placemark><name>31.10.24 10:00</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123397376">Справа №305/4323/24</a><br/></description><Point><coordinates>24.411971,48.273574</coordinates></Point></Placemark>
+        <Placemark><name>15.10.24 19:40</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124562457">Справа №null</a><br/></description><Point><coordinates>22.380612,48.680668</coordinates></Point></Placemark>
         <Placemark><name>15.10.24 null</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123458813">Справа №723/5499/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123458814">Справа №723/5504/24</a><br/></description><Point><coordinates>25.847813,48.230743</coordinates></Point></Placemark>
@@ -6311,6 +6431,8 @@
         <Placemark><name>14.10.24 18:50</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/122672153">Справа №153/1788/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/122962440">Справа №153/1791/24</a><br/></description><Point><coordinates>28.281555,48.279907</coordinates></Point></Placemark>
+        <Placemark><name>08.10.24 15:30</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
+<a href="https://reyestr.court.gov.ua/Review/124562387">Справа №308/307/25</a><br/></description><Point><coordinates>22.380612,48.680668</coordinates></Point></Placemark>
         <Placemark><name>20.10.24 11:20</name><Style><LabelStyle><scale>0.8</scale></LabelStyle></Style><description>
 <a href="https://reyestr.court.gov.ua/Review/123064579">Справа №286/3943/24</a><br/>
 <a href="https://reyestr.court.gov.ua/Review/123094046">Справа №286/3944/24</a><br/></description><Point><coordinates>28.802897,51.326831</coordinates></Point></Placemark>
