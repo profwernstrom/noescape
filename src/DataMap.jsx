@@ -14,7 +14,7 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
     return (
         <Map id="map" mapId="DEMO_MAP_ID" defaultCenter={{lat: 48.50, lng: 28.00}} defaultZoom={7} language="uk"
              region="UA" reuseMaps={true} streetViewControl={false} streetViewControlclassName="map"
-             onZoomChanged={handleZoomChanged}>
+             onZoomChanged={handleZoomChanged} mapTypeId="terrain" mapTypeControl={true}>
 
             <SelectedMarker selectedArrest={selectedArrest}/>
 
