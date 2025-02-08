@@ -101,7 +101,7 @@ header {
     .table-container {
         flex-grow: 1;
         overflow-y: auto;
-        height: calc(100vh - var(--page-header-height) - 96px - var(--accordion-header-height));
+        height: calc(100vh - var(--page-header-height) - 96px - var(--accordion-header-height) * 2);
 
         &::-webkit-scrollbar {
             width: 8px;
@@ -216,12 +216,29 @@ header {
 
         .accordion-body {
             display: none;
-            height: calc(100vh - var(--page-header-height) - var(--accordion-header-height) * 2);
+            height: calc(100vh - var(--page-header-height) - var(--accordion-header-height) * 3);
 
             &.open {
                 display: block;
+                overflow-y: auto;
             }
         }
+    }
+}
+
+.faq-dl {
+    padding: 20px;
+
+    dt {
+        font-size: 18px;
+        font-weight: 700;
+        padding-bottom: 10px;
+    }
+
+    dd {
+        font-size: 15px;
+        line-height: 20px;
+        padding-bottom: 28px;
     }
 }
 
