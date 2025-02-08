@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server: {
     strictPort: true, // API key is restricted to port 5173
+    proxy: {
+        '/data': 'https://noescape.fyi', // Get latest data files from website
+    },
   },
   preview: {
     port: 8080,
