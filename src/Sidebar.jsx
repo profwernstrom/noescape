@@ -47,25 +47,22 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
                     </button>
                     <div className={`accordion-body ${openSection === 'second' ? 'open' : ''}`}>
                         <div className="icons">
-                            <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download
-                               title="Excel файл з усіма даними">
+                            <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download>
                                 <img src="excel-32x32.png" alt="excel" width="32" height="32"/>
                                 Excel файл з усіма даними
                             </a>
-                            <a href="data/arrests.kml" target="_blank" rel="nofollow" download
-                               title="Завантажити у іншу мапу (Google Earth та інші)">
+                            <a href="data/arrests.kml" target="_blank" rel="nofollow" download>
                                 <img src="kml-32x32.png" alt="kml" width="32" height="32"/>
                                 Завантажити у іншу карту (Google Earth)
                             </a>
-                            <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow"
-                               title="Подивитись код на GitHub">
+                            <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow">
                                 <img src="github-mark-32x32.png" alt="github" width="32" height="32"/>
                                 Подивитись код на GitHub
                             </a>
                             <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow"
                                title="Зв'язатися з автором по Telegram">
                                 <img src="telegram-32x32.png" alt="github" width="32" height="32"/>
-                                Зв'язатися з автором по Telegram
+                                Звʼязатися з автором по Telegram
                             </a>
                         </div>
                     </div>
