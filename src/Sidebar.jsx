@@ -89,20 +89,21 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
                     <div className={`accordion-body ${openSection === 'third' ? 'open' : ''}`}>
                         <div className="icons">
                             <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download>
-                                <img src="excel-32x32.png" alt="excel" width="32" height="32"/>
                                 Excel файл з усіма даними
                             </a>
-                            <a href="data/arrests.kml" target="_blank" rel="nofollow" download>
-                                <img src="kml-32x32.png" alt="kml" width="32" height="32"/>
-                                Завантажити у іншу карту (Google Earth)
+                            <a href="data/text.zip" target="_blank" rel="nofollow" download>
+                                Тексти всіх судових рішень
                             </a>
-                            <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow">
-                                <img src="github-mark-32x32.png" alt="github" width="32" height="32"/>
+                            <a href="data/arrests.kmz" target="_blank" rel="nofollow" download>
+                                KML файл з останніми даннимі для завантаження на іншу карту
+                            </a>
+                            <a href="data/arrests-kml.zip" target="_blank" rel="nofollow" download>
+                                Всі KML файли для завантаження на іншу карту
+                            </a>
+                            <a href="https://github.com/profwernstrom?tab=repositories" target="_blank" rel="nofollow">
                                 Подивитись код на GitHub
                             </a>
-                            <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow"
-                               title="Зв'язатися з автором по Telegram">
-                                <img src="telegram-32x32.png" alt="github" width="32" height="32"/>
+                            <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow">
                                 Звʼязатися з автором по Telegram
                             </a>
                         </div>
