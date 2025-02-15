@@ -13,4 +13,4 @@ docker push localhost:32000/noescape:latest
 pkill -f "ssh -f -N -L 32000"
 
 # Restart the app
-ssh noescape.fyi ./restart
+ssh noescape.fyi /opt/bin/restart-noescape
