@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import DataTable from "./DataTable.jsx";
 
 const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPeriod}) => {
-    const [country, setCountry] = useState("PL")
-    const [openSection, setOpenSection] = useState("first");
+    const [country, setCountry] = useState('PL')
+    const [openSection, setOpenSection] = useState('second');
 
     const toggleAccordion = (section) => {
         setOpenSection((prev) => (prev === section ? null : section));
@@ -15,64 +15,10 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
             <div className="accordion">
                 <div className="accordion-item">
                     <button className={`accordion-button ${openSection === 'first' ? 'active' : ''}`}
-                            onClick={() => toggleAccordion("first")}>
-                        Місця затримань
-                    </button>
-                    <div className={`accordion-body ${openSection === 'first' ? 'open' : ''}`}>
-                        <form>
-                            <select value={country} onChange={e => setCountry(e.target.value)}>
-                                <option value="PL">Польща</option>
-                                <option value="SK">Словаччина</option>
-                                <option value="HU">Угорщина</option>
-                                <option value="RO">Румунія</option>
-                                <option value="MD">Молдова</option>
-                                <option value="BY">Білорусь</option>
-                            </select>
-                            <select value={period} onChange={e => onSelectPeriod(parseInt(e.target.value))}>
-                                <option value="12">Останні 12 місяців</option>
-                                <option value="6">Останні 6 місяців</option>
-                                <option value="2">Останні 2 місяці</option>
-                            </select>
-                        </form>
-                        <div className="table-container">
-                            <DataTable country={country} arrests={arrests} selectedArrest={selectedArrest}
-                                       onSelectArrest={onSelectArrest}/>
-                        </div>
-                    </div>
-                </div>
-                <div className="accordion-item">
-                    <button className={`accordion-button ${openSection === 'second' ? 'active' : ''}`}
-                            onClick={() => toggleAccordion("second")}>
-                        Посилання
-                    </button>
-                    <div className={`accordion-body ${openSection === 'second' ? 'open' : ''}`}>
-                        <div className="icons">
-                            <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download>
-                                <img src="excel-32x32.png" alt="excel" width="32" height="32"/>
-                                Excel файл з усіма даними
-                            </a>
-                            <a href="data/arrests.kml" target="_blank" rel="nofollow" download>
-                                <img src="kml-32x32.png" alt="kml" width="32" height="32"/>
-                                Завантажити у іншу карту (Google Earth)
-                            </a>
-                            <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow">
-                                <img src="github-mark-32x32.png" alt="github" width="32" height="32"/>
-                                Подивитись код на GitHub
-                            </a>
-                            <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow"
-                               title="Зв'язатися з автором по Telegram">
-                                <img src="telegram-32x32.png" alt="github" width="32" height="32"/>
-                                Звʼязатися з автором по Telegram
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="accordion-item">
-                    <button className={`accordion-button ${openSection === 'third' ? 'active' : ''}`}
-                            onClick={() => toggleAccordion("third")}>
+                            onClick={() => toggleAccordion('first')}>
                         Поширені запитання
                     </button>
-                    <div className={`accordion-body ${openSection === 'third' ? 'open' : ''}`}>
+                    <div className={`accordion-body ${openSection === 'first' ? 'open' : ''}`}>
                         <dl className="faq-dl">
                             <dt>Чому одні кружки сині, а інші червоні?</dt>
                             <dd>Кожен кружок має число - це кількість затримань.
@@ -106,6 +52,60 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
                                 Це <a href="https://t.me/profwernstrom">мій</a> хобі-проект.
                             </dd>
                         </dl>
+                    </div>
+                </div>
+                <div className="accordion-item">
+                    <button className={`accordion-button ${openSection === 'second' ? 'active' : ''}`}
+                            onClick={() => toggleAccordion('second')}>
+                        Місця затримань
+                    </button>
+                    <div className={`accordion-body ${openSection === 'second' ? 'open' : ''}`}>
+                        <form>
+                            <select value={country} onChange={e => setCountry(e.target.value)}>
+                                <option value="PL">Польща</option>
+                                <option value="SK">Словаччина</option>
+                                <option value="HU">Угорщина</option>
+                                <option value="RO">Румунія</option>
+                                <option value="MD">Молдова</option>
+                                <option value="BY">Білорусь</option>
+                            </select>
+                            <select value={period} onChange={e => onSelectPeriod(parseInt(e.target.value))}>
+                                <option value="12">Останні 12 місяців</option>
+                                <option value="6">Останні 6 місяців</option>
+                                <option value="2">Останні 2 місяці</option>
+                            </select>
+                        </form>
+                        <div className="table-container">
+                            <DataTable country={country} arrests={arrests} selectedArrest={selectedArrest}
+                                       onSelectArrest={onSelectArrest}/>
+                        </div>
+                    </div>
+                </div>
+                <div className="accordion-item">
+                    <button className={`accordion-button ${openSection === 'third' ? 'active' : ''}`}
+                            onClick={() => toggleAccordion('third')}>
+                        Посилання
+                    </button>
+                    <div className={`accordion-body ${openSection === 'third' ? 'open' : ''}`}>
+                        <div className="icons">
+                            <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download>
+                                <img src="excel-32x32.png" alt="excel" width="32" height="32"/>
+                                Excel файл з усіма даними
+                            </a>
+                            <a href="data/arrests.kml" target="_blank" rel="nofollow" download>
+                                <img src="kml-32x32.png" alt="kml" width="32" height="32"/>
+                                Завантажити у іншу карту (Google Earth)
+                            </a>
+                            <a href="https://github.com/profwernstrom/noescape" target="_blank" rel="nofollow">
+                                <img src="github-mark-32x32.png" alt="github" width="32" height="32"/>
+                                Подивитись код на GitHub
+                            </a>
+                            <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow"
+                               title="Зв'язатися з автором по Telegram">
+                                <img src="telegram-32x32.png" alt="github" width="32" height="32"/>
+                                Звʼязатися з автором по Telegram
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
