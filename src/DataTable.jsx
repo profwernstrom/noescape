@@ -1,12 +1,11 @@
 import {useEffect, useState} from "react";
 import {formatDate} from "./util.js";
 
-function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
+function DataTable({arrests, selectedArrest, onSelectArrest}) {
 
     const [sortBy, setSortBy] = useState('arrestDate');
     const [sortDirection, setSortDirection] = useState(1);
 
-    const filterData = (arrest) => (arrest.country || '?') === country;
 
     const sortData = (a, b) => {
         let aa = a[sortBy];
@@ -68,7 +67,7 @@ function DataTable({country, arrests, selectedArrest, onSelectArrest}) {
             </tr>
             </thead>
             <tbody>
-            {arrests.filter(filterData).sort(sortData).map((arrest) => (
+            {arrests.sort(sortData).map((arrest) => (
                 <tr key={arrest.id}
                     id={'tr-' + arrest.id}
                     className={arrest === selectedArrest ? 'selected' : ''}

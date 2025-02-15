@@ -93,7 +93,6 @@ header {
         height: 48px;
 
         & select {
-            margin-right: 6px;
             padding: 6px;
         }
     }
@@ -203,7 +202,35 @@ header {
 
             &.open {
                 display: block;
-                overflow-y: auto;
+            }
+
+            .filter-container {
+                .filter-parameter {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px;
+
+                    & input,
+                    & select {
+                        padding: 5px;
+                    }
+
+                    .inner {
+                        display: flex;
+                        gap: 5px;
+                        align-items: center;
+                    }
+
+                    .input-number {
+                        width: 100%;
+
+                        &::-webkit-outer-spin-button,
+                        &::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+                    }
+                }
             }
         }
     }

@@ -7,7 +7,7 @@ import DataMap from "./DataMap.jsx";
 
 function App() {
     const [allArrests, setAllArrests] = useState([]);
-    const [period, setPeriod] = useState(12);
+    const [period] = useState(12);
     const [borderSigns, setBorderSigns] = useState([]);
     const [selectedArrest, setSelectedArrest] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
@@ -47,7 +47,7 @@ function App() {
             <PageHeader onToggleSidebar={handleToggleSidebar}/>
             <div className={sidebarOpen ? 'sidebar-open' : ''}>
                 <Sidebar isOpen={sidebarOpen} arrests={visibleArrests} selectedArrest={selectedArrest}
-                         onSelectArrest={handleSelectArrest} onSelectPeriod={setPeriod}/>
+                         onSelectArrest={handleSelectArrest}/>
                 <div className="main-content">
                     <APIProvider apiKey={import.meta.env.VITE_MAPS_API_KEY}>
                         <DataMap arrests={visibleArrests} selectedArrest={selectedArrest}

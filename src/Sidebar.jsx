@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
 import DataTable from "./DataTable.jsx";
+import Filters from "./Filters.jsx";
 
-const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPeriod}) => {
-    const [country, setCountry] = useState('PL')
+const Sidebar = ({arrests, selectedArrest, onSelectArrest}) => {
     const [openSection, setOpenSection] = useState('second');
-
     const toggleAccordion = (section) => {
         setOpenSection((prev) => (prev === section ? null : section));
-
     };
 
     return (
@@ -60,23 +58,9 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
                         Місця затримань
                     </button>
                     <div className={`accordion-body ${openSection === 'second' ? 'open' : ''}`}>
-                        <form>
-                            <select value={country} onChange={e => setCountry(e.target.value)}>
-                                <option value="PL">Польща</option>
-                                <option value="SK">Словаччина</option>
-                                <option value="HU">Угорщина</option>
-                                <option value="RO">Румунія</option>
-                                <option value="MD">Молдова</option>
-                                <option value="BY">Білорусь</option>
-                            </select>
-                            <select value={period} onChange={e => onSelectPeriod(parseInt(e.target.value))}>
-                                <option value="12">Останні 12 місяців</option>
-                                <option value="6">Останні 6 місяців</option>
-                                <option value="2">Останні 2 місяці</option>
-                            </select>
-                        </form>
+                        <Filters/>
                         <div className="table-container">
-                            <DataTable country={country} arrests={arrests} selectedArrest={selectedArrest}
+                            <DataTable arrests={arrests} selectedArrest={selectedArrest}
                                        onSelectArrest={onSelectArrest}/>
                         </div>
                     </div>
