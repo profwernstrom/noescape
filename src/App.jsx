@@ -1,27 +1,22 @@
-import {useCallback, useEffect, useMemo, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import PageHeader from './PageHeader.jsx';
 import Sidebar from './Sidebar';
 import {loadArrests, loadBorderSigns} from "./api.js";
 import {APIProvider} from "@vis.gl/react-google-maps";
 import DataMap from "./DataMap.jsx";
+import {useFilterParams} from "./FilterParams.context.jsx";
 
 function App() {
     const [allArrests, setAllArrests] = useState([]);
-    const [period] = useState(12);
     const [borderSigns, setBorderSigns] = useState([]);
     const [selectedArrest, setSelectedArrest] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
+    const {year, month, country, fromTime, toTime, text} = useFilterParams();
 
     useEffect(() => {
         loadBorderSigns().then(setBorderSigns);
-        loadArrests().then(setAllArrests);
-    }, []);
-
-    const visibleArrests = useMemo(() => {
-        const fromDate = new Date();
-        fromDate.setMonth(fromDate.getMonth() - period);
-        return allArrests.filter(arrest => arrest.arrestDate && new Date(arrest.arrestDate) >= fromDate);
-    }, [allArrests, period]);
+        loadArrests({year, month, country, fromTime, toTime, text}).then(setAllArrests);
+    }, [country, month, text, year, fromTime, toTime]);
 
     const handleSelectArrest = useCallback((selected) => {
         setSelectedArrest(selected);
@@ -46,11 +41,11 @@ function App() {
         <div className="app">
             <PageHeader onToggleSidebar={handleToggleSidebar}/>
             <div className={sidebarOpen ? 'sidebar-open' : ''}>
-                <Sidebar isOpen={sidebarOpen} arrests={visibleArrests} selectedArrest={selectedArrest}
+                <Sidebar isOpen={sidebarOpen} arrests={allArrests} selectedArrest={selectedArrest}
                          onSelectArrest={handleSelectArrest}/>
                 <div className="main-content">
                     <APIProvider apiKey={import.meta.env.VITE_MAPS_API_KEY}>
-                        <DataMap arrests={visibleArrests} selectedArrest={selectedArrest}
+                        <DataMap arrests={allArrests} selectedArrest={selectedArrest}
                                  onSelectArrest={handleSelectArrest} borderSigns={borderSigns}/>
                     </APIProvider>
                 </div>

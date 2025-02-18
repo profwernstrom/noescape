@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
@@ -7,6 +7,10 @@ export default defineConfig({
     strictPort: true, // API key is restricted to port 5173
     proxy: {
         '/data': 'https://noescape.fyi', // Get latest data files from website
+        '/api': {
+            target: 'http://localhost:8080',
+        } // Filter court cases
+
     },
   },
   preview: {

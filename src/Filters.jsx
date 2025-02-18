@@ -1,24 +1,31 @@
-import {useState} from "react";
+import {useFilterParams} from "./FilterParams.context.jsx";
 
-const Filters = () => {
-    const [year, setYear] = useState(0);
-    const [month, setMonth] = useState(0);
-    const [country, setCountry] = useState("PL");
-    const [text, setText] = useState("");
+function Filters() {
+    const {
+        year,
+        month,
+        country,
+        text,
+        setYear,
+        setMonth,
+        setCountry,
+        setText,
+        handleSelectTimePeriod
+    } = useFilterParams();
 
     return (
         <div className="filter-container">
             <div className="filter-parameter">
                 <div className="inner">
                     <select value={year} onChange={e => setYear(parseInt(e.target.value))}>
-                        <option selected value="0">Останні 12 місяців</option>
+                        <option defaultValue="0">Останні 12 місяців</option>
                         <option value="2025">2025</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
                     </select>
                     <select value={month} onChange={e => setMonth(parseInt(e.target.value))}>
-                        <option selected value="0">Всі місяці</option>
+                        <option defaultValue="0">Всі місяці</option>
                         <option value="1">Січень</option>
                         <option value="2">Лютий</option>
                         <option value="3">Березень</option>
@@ -32,12 +39,12 @@ const Filters = () => {
                         <option value="11">Листопад</option>
                         <option value="12">Грудень</option>
                     </select>
-                    <select>
-                        <option selected>Будь-який час</option>
-                        <option value="">22:00 - 06:00</option>
-                        <option value="">06:00 - 10:00</option>
-                        <option value="">10:00 - 18:00</option>
-                        <option value="">18:00 - 22:00</option>
+                    <select value="0" onChange={e => handleSelectTimePeriod(e.target.value)}>
+                        <option defaultValue="0">Будь-який час</option>
+                        <option value="22:00-06:00">22:00 - 06:00</option>
+                        <option value="06:00-10:00">06:00 - 10:00</option>
+                        <option value="10:00-18:00">10:00 - 18:00</option>
+                        <option value="18:00-22:00">18:00 - 22:00</option>
                     </select>
                 </div>
             </div>
