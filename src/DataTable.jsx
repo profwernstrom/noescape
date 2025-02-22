@@ -75,7 +75,7 @@ function DataTable({arrests, selectedArrest, onSelectArrest}) {
                     <td>{arrest.borderSign}</td>
                     <td>{formatDate(arrest.arrestDate) + ' ' + (arrest.arrestTime || '??:??')}</td>
                     <td>{arrest.distance || '?'}</td>
-                    <td>{arrest.groupSize}</td>
+                    <td>{arrest.cases.length}</td>
                 </tr>
             ))}
             </tbody>
