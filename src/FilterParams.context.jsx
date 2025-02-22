@@ -6,11 +6,9 @@ export const FilterParamsContext = createContext({
     country: null,
     fromTime: null,
     toTime: null,
-    text: null,
     setYear: () => console.log('set year'),
     setMonth: () => console.log('set month'),
     setCountry: () => console.log('set country'),
-    setText: () => console.log('set text')
 });
 
 export function FilterParamsProvider({children}) {
@@ -19,7 +17,6 @@ export function FilterParamsProvider({children}) {
     const [country, setCountry] = useState("");
     const [fromTime, setFromTime] = useState("");
     const [toTime, setToTime] = useState("");
-    const [text, setText] = useState("");
 
     const handleSelectTimePeriod = useCallback((timePeriod) => {
         const split = timePeriod.split('-');
@@ -33,13 +30,11 @@ export function FilterParamsProvider({children}) {
         country,
         fromTime,
         toTime,
-        text,
         setYear,
         setMonth,
         setCountry,
-        setText,
         handleSelectTimePeriod
-    }), [year, month, country, fromTime, toTime, text, handleSelectTimePeriod]);
+    }), [year, month, country, fromTime, toTime, handleSelectTimePeriod]);
 
     return (
         <FilterParamsContext.Provider value={value}>{children}</FilterParamsContext.Provider>

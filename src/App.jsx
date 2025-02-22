@@ -11,12 +11,12 @@ function App() {
     const [borderSigns, setBorderSigns] = useState([]);
     const [selectedArrest, setSelectedArrest] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
-    const {year, month, country, fromTime, toTime, text} = useFilterParams();
+    const {year, month, country, fromTime, toTime} = useFilterParams();
 
     useEffect(() => {
         loadBorderSigns().then(setBorderSigns);
-        loadArrests({year, month, country, fromTime, toTime, text}).then(setAllArrests);
-    }, [country, month, text, year, fromTime, toTime]);
+        loadArrests({year, month, country, fromTime, toTime}).then(setAllArrests);
+    }, [country, month, year, fromTime, toTime]);
 
     const handleSelectArrest = useCallback((selected) => {
         setSelectedArrest(selected);

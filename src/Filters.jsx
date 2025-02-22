@@ -5,11 +5,9 @@ function Filters() {
         year,
         month,
         country,
-        text,
         setYear,
         setMonth,
         setCountry,
-        setText,
         handleSelectTimePeriod
     } = useFilterParams();
 
@@ -57,10 +55,6 @@ function Filters() {
                     <option value="MD">Молдова</option>
                     <option value="BY">Білорусь</option>
                 </select>
-            </div>
-            <div className="filter-parameter">
-                <input type="text" value={text} placeholder="Пошук по тексту"
-                       onChange={e => setText(e.target.value)}/>
             </div>
         </div>
     );
