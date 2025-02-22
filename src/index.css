@@ -100,7 +100,7 @@ header {
     .table-container {
         flex-grow: 1;
         overflow-y: auto;
-        height: calc(100vh - var(--page-header-height) - 96px - var(--accordion-header-height) * 2);
+        height: calc(100vh - var(--page-header-height) - 125px - var(--accordion-header-height) * 2);
 
         & table {
             width: 100%;

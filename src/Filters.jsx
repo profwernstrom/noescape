@@ -5,10 +5,11 @@ function Filters() {
         year,
         month,
         country,
+        timePeriod,
         setYear,
         setMonth,
         setCountry,
-        handleSelectTimePeriod
+        setTimePeriod
     } = useFilterParams();
 
     return (
@@ -16,14 +17,14 @@ function Filters() {
             <div className="filter-parameter">
                 <div className="inner">
                     <select value={year} onChange={e => setYear(parseInt(e.target.value))}>
-                        <option defaultValue="0">Останні 12 місяців</option>
+                        <option defaultValue="0" value={0}>Останні 12 місяців</option>
                         <option value="2025">2025</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
                     </select>
                     <select value={month} onChange={e => setMonth(parseInt(e.target.value))}>
-                        <option defaultValue="0">Всі місяці</option>
+                        <option defaultValue="0" value={0}>Всі місяці</option>
                         <option value="1">Січень</option>
                         <option value="2">Лютий</option>
                         <option value="3">Березень</option>
@@ -37,8 +38,8 @@ function Filters() {
                         <option value="11">Листопад</option>
                         <option value="12">Грудень</option>
                     </select>
-                    <select value="0" onChange={e => handleSelectTimePeriod(e.target.value)}>
-                        <option defaultValue="0">Будь-який час</option>
+                    <select value={timePeriod} onChange={e => setTimePeriod(e.target.value)}>
+                        <option defaultValue="null" value="">Будь-який час</option>
                         <option value="22:00-06:00">22:00 - 06:00</option>
                         <option value="06:00-10:00">06:00 - 10:00</option>
                         <option value="10:00-18:00">10:00 - 18:00</option>
@@ -48,6 +49,7 @@ function Filters() {
             </div>
             <div className="filter-parameter">
                 <select value={country} onChange={e => setCountry(e.target.value)}>
+                    <option defaultValue="null" value="">Всі країни</option>
                     <option value="PL">Польща</option>
                     <option value="SK">Словаччина</option>
                     <option value="HU">Угорщина</option>
