@@ -16,7 +16,7 @@ export async function loadArrests(filters) {
     );
 
     const queryParams = new URLSearchParams(validFilters).toString();
-    const url = `/api/court-cases${queryParams ? `?${queryParams}` : ""}`;
+    const url = `/api/arrests?${queryParams}`;
     const response = await fetch(url, {
         method: 'GET',
         headers: {
