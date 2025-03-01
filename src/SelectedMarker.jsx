@@ -1,55 +1,58 @@
-import {useEffect, useState} from "react";
-import {AdvancedMarker, InfoWindow, Pin, useAdvancedMarkerRef, useMap} from "@vis.gl/react-google-maps";
+import {useEffect} from "react";
+import L from 'leaflet';
+import {Marker, Popup, useMap} from "react-leaflet";
 import {formatDate} from "./util.js";
 
 function SelectedMarker({selectedArrest}) {
-    const [infoOpen, setInfoOpen] = useState(false);
-    const [markerRef, marker] = useAdvancedMarkerRef();
     const map = useMap();
 
     useEffect(() => {
         if (selectedArrest && selectedArrest.position && map) {
-            map.panTo(selectedArrest.position)
+            map.panTo([selectedArrest.position.lat, selectedArrest.position.lng])
         }
-        setInfoOpen(selectedArrest);
     }, [selectedArrest, map]);
+
+    const customIcon = L.divIcon({
+        className: "custom-marker",
+        html: `<div style="
+    background-color: yellow;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+  "></div>`,
+        iconSize: [20, 20],
+        iconAnchor: [10, 10],
+    });
 
     return (
         <>
             {selectedArrest && (
                 <>
-                    <AdvancedMarker
-                        ref={markerRef}
-                        position={selectedArrest.position}
-                        title={formatDate(selectedArrest.arrestDate) + ' (' + selectedArrest.groupSize + ')'}
-                        zIndex={Number.MAX_SAFE_INTEGER}
-                        onClick={() => setInfoOpen(true)}>
-                        <Pin background={"yellow"} borderColor={"brown"} glyphColor={"orange"}></Pin>
-                    </AdvancedMarker>
-
-                    {infoOpen && (
-                        <InfoWindow anchor={marker} onClose={() => setInfoOpen(false)}
-                                    headerContent="Приблизне місце затримання">
-                            <p>Дата затримання:&nbsp;
-                                {selectedArrest.arrestDate ? formatDate(selectedArrest.arrestDate) : '?'}</p>
-                            <p>Відстань до кордону:&nbsp;
-                                {selectedArrest.distance ? selectedArrest.distance + ' м' : '?'}</p>
-
+                    <Marker position={[selectedArrest.position.lat, selectedArrest.position.lng]} icon={customIcon}>
+                        <Popup>
+                            <div className="leaflet-popup-header">Приблизне місце затримання</div>
+                            <>
+                                <p>Дата затримання:&nbsp;
+                                    {selectedArrest.arrestDate ? formatDate(selectedArrest.arrestDate) : '?'}</p>
+                                <p>Відстань до кордону:&nbsp;
+                                    {selectedArrest.distance ? selectedArrest.distance + ' м' : '?'}</p>
+                            </>
                             {selectedArrest && selectedArrest.cases && selectedArrest.cases.map(courtCase => (
                                 <div key={courtCase.caseId}>
                                     <br/>
                                     <p><a target={'noescape_' + courtCase.caseId} rel="nofollow" title="Судове рішення"
                                           href={'https://reyestr.court.gov.ua/Review/' + courtCase.caseId}>Судове
                                         рішення</a>
-                                    <p>Дата оприлюднення:&nbsp;
-                                        {courtCase.publicationDate ? formatDate(courtCase.publicationDate) : '?'}</p>
-                                    <p>Штраф:&nbsp;
-                                        {courtCase.fine ? courtCase.fine + ' грн' : '?'}</p>
+                                        <p>Дата оприлюднення:&nbsp;
+                                            {courtCase.publicationDate ? formatDate(courtCase.publicationDate) : '?'}</p>
+                                        <p>Штраф:&nbsp;
+                                            {courtCase.fine ? courtCase.fine + ' грн' : '?'}</p>
                                     </p>
                                 </div>
                             ))}
-                        </InfoWindow>
-                    )}
+                        </Popup>
+                    </Marker>
                 </>
             )}
         </>
