@@ -5,10 +5,12 @@ export const FilterParamsContext = createContext({
     month: 0,
     country: null,
     timePeriod: null,
+    text: null,
     setYear: () => console.log('set year'),
     setMonth: () => console.log('set month'),
     setCountry: () => console.log('set country'),
-    setTimePeriod: () => console.log('set time period')
+    setTimePeriod: () => console.log('set time period'),
+    setText: () => console.log('set text')
 });
 
 export function FilterParamsProvider({children}) {
@@ -16,17 +18,20 @@ export function FilterParamsProvider({children}) {
     const [month, setMonth] = useState(0);
     const [country, setCountry] = useState("");
     const [timePeriod, setTimePeriod] = useState("");
+    const [text, setText] = useState("")
 
     const value = useMemo(() => ({
         year,
         month,
         country,
         timePeriod,
+        text,
         setYear,
         setMonth,
         setCountry,
-        setTimePeriod
-    }), [year, month, country, timePeriod]);
+        setTimePeriod,
+        setText
+    }), [year, month, country, timePeriod, text]);
 
     return (
         <FilterParamsContext.Provider value={value}>{children}</FilterParamsContext.Provider>

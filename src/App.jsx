@@ -11,13 +11,18 @@ function App() {
     const [borderSigns, setBorderSigns] = useState([]);
     const [selectedArrest, setSelectedArrest] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
-    const {year, month, country, timePeriod} = useFilterParams();
+    const {year, month, country, timePeriod, text} = useFilterParams();
 
     useEffect(() => {
-        loadBorderSigns().then(setBorderSigns);
-        const split = timePeriod.split('-');
-        loadArrests({year, month, country, fromTime: split[0], toTime: split[1]}).then(setAllArrests);
-    }, [country, month, year, timePeriod]);
+        const timeoutId = setTimeout(() => {
+            loadBorderSigns().then(setBorderSigns);
+            const split = timePeriod.split('-');
+            loadArrests({year, month, country, fromTime: split[0], toTime: split[1], text}).then(setAllArrests);
+        }, 500);
+        return () => {
+            clearTimeout(timeoutId);
+        }
+    }, [country, month, year, timePeriod, text]);
 
     const handleSelectArrest = useCallback((selected) => {
         setSelectedArrest(selected);
