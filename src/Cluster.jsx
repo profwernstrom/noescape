@@ -37,6 +37,12 @@ function Cluster({arrests, onSelectArrest}) {
         markerClusterer.addMarkers(markers);
     }, [map, markerLibrary, arrests]);
 
+    useEffect(() => {
+        if (map != null) {
+            map.data.map.data.loadGeoJson("/api/geojson?year=2024");
+        }
+    }, [map]);
+
     return (
         <></>
     );
