@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import L from "leaflet";
 
 let ready = false;
@@ -74,12 +74,17 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
     }
 
     function createClusterIcon(feature, latlng) {
-        if (!feature.properties.cluster) return L.marker(latlng);
+        if (!feature.properties.cluster) return L.marker(latlng, {
+            icon: L.divIcon({
+                html: `<div></div>`,
+                className: `marker`,
+                iconSize: L.point(30, 30)
+            })
+        });
 
         const count = feature.properties.point_count;
         const size =
-            count < 100 ? 'small' :
-                count < 1000 ? 'medium' : 'large';
+            count < 100 ? 'small' : 'large';
         const icon = L.divIcon({
             html: `<div><span>${feature.properties.point_count_abbreviated}</span></div>`,
             className: `marker-cluster marker-cluster-${size}`,
