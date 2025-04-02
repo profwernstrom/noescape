@@ -36,7 +36,6 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
                     });
                 }
             });
-
         }
 
         return () => {
@@ -95,19 +94,19 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
 
             const casesHtml = feature.properties.cases.map(courtCase =>
                 `<br/>
-            <a target="noescape_${courtCase.id}" rel="nofollow" title="Судове рішення"
+                <a target="noescape_${courtCase.id}" rel="nofollow" title="Судове рішення"
                   href="https://reyestr.court.gov.ua/Review/${courtCase.id}">Судове рішення</a><br/>
-            Дата оприлюднення:&nbsp;${formatDate(courtCase.pub) ?? '?'}<br/>
-            Штраф:&nbsp;${courtCase.fine ?? '?'} грн<br/>`)
+                Дата оприлюднення:&nbsp;${formatDate(courtCase.pub) ?? '?'}<br/>
+                Штраф:&nbsp;${courtCase.fine ?? '?'} грн<br/>`)
                 .join('\n');
 
             layer.bindPopup(
                 `<div>
-            Приблизне місце затримання<br/><br/>
-            Дата затримання:&nbsp;${formatDate(feature.properties.date) ?? '?'}<br/>
-            Відстань до кордону:&nbsp;${feature.properties.distance ?? '?'} м<br/>
-            ${casesHtml}
-            </div>`);
+                Приблизне місце затримання<br/><br/>
+                Дата затримання:&nbsp;${formatDate(feature.properties.date) ?? '?'}<br/>
+                Відстань до кордону:&nbsp;${feature.properties.distance ?? '?'} м<br/>
+                ${casesHtml}
+                </div>`);
         }
     }
 
@@ -115,7 +114,7 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
         return date ? date.substring(8, 10) + '.' + date.substring(5, 7) + '.' + date.substring(0, 4) + ' ' + date.substring(11, 16) : '';
     }
 
-    return <div ref={mapContainerRef} style={{ height: "100%", width: "100%" }} />;
+    return <div ref={mapContainerRef} style={{height: "100%", width: "100%"}}/>;
 }
 
 export default DataMap;

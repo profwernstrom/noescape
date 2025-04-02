@@ -271,10 +271,10 @@ header {
 
 
 .marker-cluster-small {
-    background-color: rgba(181, 226, 140, 0.6);
+    background-color: rgba(200, 219, 255, 0.6);
 }
 .marker-cluster-small div {
-    background-color: rgba(110, 204, 57, 0.6);
+    background-color: rgba(146, 173, 253, 0.66);
 }
 
 .marker-cluster-medium {
@@ -288,7 +288,7 @@ header {
     background-color: rgba(253, 156, 115, 0.6);
 }
 .marker-cluster-large div {
-    background-color: rgba(241, 128, 23, 0.6);
+    background-color: rgba(228, 83, 21, 0.6);
 }
 
 .marker-cluster {
