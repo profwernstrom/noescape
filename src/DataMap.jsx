@@ -1,5 +1,6 @@
 import {useEffect, useRef} from "react";
 import L from "leaflet";
+import {formatDate} from "./util.js";
 
 let ready = false;
 
@@ -113,10 +114,6 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
                 ${casesHtml}
                 </div>`);
         }
-    }
-
-    function formatDate(date) {
-        return date ? date.substring(8, 10) + '.' + date.substring(5, 7) + '.' + date.substring(0, 4) + ' ' + date.substring(11, 16) : '';
     }
 
     return <div ref={mapContainerRef} style={{height: "100%", width: "100%"}}/>;
