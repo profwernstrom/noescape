@@ -2,7 +2,6 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import PageHeader from './PageHeader.jsx';
 import Sidebar from './Sidebar';
 import {loadArrests, loadBorderSigns} from "./api.js";
-import {APIProvider} from "@vis.gl/react-google-maps";
 import DataMap from "./DataMap.jsx";
 
 function App() {
@@ -49,10 +48,8 @@ function App() {
                 <Sidebar isOpen={sidebarOpen} arrests={visibleArrests} selectedArrest={selectedArrest}
                          onSelectArrest={handleSelectArrest} onSelectPeriod={setPeriod}/>
                 <div className="main-content">
-                    <APIProvider apiKey={import.meta.env.VITE_MAPS_API_KEY}>
-                        <DataMap arrests={visibleArrests} selectedArrest={selectedArrest}
-                                 onSelectArrest={handleSelectArrest} borderSigns={borderSigns}/>
-                    </APIProvider>
+                    <DataMap arrests={visibleArrests} selectedArrest={selectedArrest}
+                             onSelectArrest={handleSelectArrest} borderSigns={borderSigns}/>
                 </div>
             </div>
         </div>
