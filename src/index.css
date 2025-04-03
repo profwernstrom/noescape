@@ -44,6 +44,7 @@ header {
 }
 
 .menu-button {
+    cursor: pointer;
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -136,8 +137,14 @@ header {
     }
 }
 
-.sidebar-open .sidebar {
-    left: 0;
+.sidebar-open {
+    .sidebar {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 380px;
+    }
 }
 
 .main-content {
