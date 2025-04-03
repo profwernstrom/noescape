@@ -7,7 +7,6 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
 
     const toggleAccordion = (section) => {
         setOpenSection((prev) => (prev === section ? null : section));
-
     };
 
     return (

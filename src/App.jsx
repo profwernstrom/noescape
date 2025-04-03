@@ -45,7 +45,7 @@ function App() {
         <div className="app">
             <PageHeader onToggleSidebar={handleToggleSidebar}/>
             <div className={sidebarOpen ? 'sidebar-open' : ''}>
-                <Sidebar isOpen={sidebarOpen} arrests={visibleArrests} selectedArrest={selectedArrest}
+                <Sidebar arrests={visibleArrests} selectedArrest={selectedArrest}
                          onSelectArrest={handleSelectArrest} onSelectPeriod={setPeriod}/>
                 <div className="main-content">
                     <DataMap arrests={visibleArrests} selectedArrest={selectedArrest}
