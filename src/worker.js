@@ -1,17 +1,30 @@
 import Supercluster from "supercluster";
+import KDBush from "kdbush";
 
 const now = Date.now();
-let index;
+let clusterIndex;
+let borderSignIndex;
+let borderSigns = [];
 
 self.onmessage = function (e) {
     if (e.data) {
         if (e.data.getClusterExpansionZoom) {
             postMessage({
-                expansionZoom: index.getClusterExpansionZoom(e.data.getClusterExpansionZoom),
+                expansionZoom: clusterIndex.getClusterExpansionZoom(e.data.getClusterExpansionZoom),
                 center: e.data.center
             });
-        } else if (index) {
-            postMessage(index.getClusters(e.data.bbox, e.data.zoom));
+        } else {
+            const message = {borderSigns: [], clusters: []};
+            if (clusterIndex) {
+                message.clusters = clusterIndex.getClusters(e.data.bbox, e.data.zoom);
+            }
+
+            if (borderSignIndex && e.data.zoom > 13) {
+                const [minLng, minLat, maxLng, maxLat] = e.data.bbox;
+                const foundIds = borderSignIndex.range(minLng, minLat, maxLng, maxLat);
+                message.borderSigns = foundIds.map(i => borderSigns[i]);
+            }
+            postMessage(message);
         }
     }
 };
@@ -27,7 +40,29 @@ fetch('/data/arrests.json')
             extent: 256,
             maxZoom: 17
         });
-        index = supercluster.load(geojson.features);
-        postMessage({ready: true});
+        clusterIndex = supercluster.load(geojson.features);
+        postMessage({clustersReady: true});
     })
     .catch(error => console.error('Error fetching JSON:', error));
+
+fetch('/data/signs.txt')
+    .then(r => r.text())
+    .then(tsv => {
+        let lines = tsv.trim().split('\n');
+        const index = new KDBush(lines.length);
+        lines.map(line => line.split('\t'))
+            .map(values => {
+                const borderSign = {
+                    country: values[0],
+                    title: values[1],
+                    lat: parseFloat(values[2]),
+                    lng: parseFloat(values[3]),
+                    generated: values[4] === 'true',
+                };
+                index.add(borderSign.lng, borderSign.lat);
+                borderSigns.push(borderSign);
+            });
+        index.finish();
+        borderSignIndex = index;
+        postMessage({borderSignsReady: true});
+    });

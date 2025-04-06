@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
-import DataTable from "./DataTable.jsx";
 
-const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPeriod}) => {
-    const [country, setCountry] = useState('PL')
-    const [openSection, setOpenSection] = useState('second');
+const Sidebar = () => {
+    const [openSection, setOpenSection] = useState('first');
 
     const toggleAccordion = (section) => {
         setOpenSection((prev) => (prev === section ? null : section));
@@ -56,36 +54,9 @@ const Sidebar = ({arrests, selectedArrest, onSelectArrest, period, onSelectPerio
                 <div className="accordion-item">
                     <button className={`accordion-button ${openSection === 'second' ? 'active' : ''}`}
                             onClick={() => toggleAccordion('second')}>
-                        Місця затримань
-                    </button>
-                    <div className={`accordion-body ${openSection === 'second' ? 'open' : ''}`}>
-                        <form>
-                            <select value={country} onChange={e => setCountry(e.target.value)}>
-                                <option value="PL">Польща</option>
-                                <option value="SK">Словаччина</option>
-                                <option value="HU">Угорщина</option>
-                                <option value="RO">Румунія</option>
-                                <option value="MD">Молдова</option>
-                                <option value="BY">Білорусь</option>
-                            </select>
-                            <select value={period} onChange={e => onSelectPeriod(parseInt(e.target.value))}>
-                                <option value="12">Останні 12 місяців</option>
-                                <option value="6">Останні 6 місяців</option>
-                                <option value="2">Останні 2 місяці</option>
-                            </select>
-                        </form>
-                        <div className="table-container">
-                            <DataTable country={country} arrests={arrests} selectedArrest={selectedArrest}
-                                       onSelectArrest={onSelectArrest}/>
-                        </div>
-                    </div>
-                </div>
-                <div className="accordion-item">
-                    <button className={`accordion-button ${openSection === 'third' ? 'active' : ''}`}
-                            onClick={() => toggleAccordion('third')}>
                         Посилання
                     </button>
-                    <div className={`accordion-body ${openSection === 'third' ? 'open' : ''}`}>
+                    <div className={`accordion-body ${openSection === 'second' ? 'open' : ''}`}>
                         <div className="icons">
                             <a href="data/спроби_перетинання_кордону.xlsx" target="_blank" rel="nofollow" download>
                                 Excel файл з усіма даними
