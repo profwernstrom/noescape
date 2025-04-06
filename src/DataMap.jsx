@@ -4,14 +4,12 @@ import {formatDate} from "./util.js";
 
 let ready = false;
 
-function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
-
-
+function DataMap() {
     const mapRef = useRef(null);
     const mapContainerRef = useRef(null);
     const workerRef = useRef(null);
     const markersRef = useRef(null);
-
+    const borderSignsRef = useRef(null);
 
     useEffect(() => {
         if (!mapRef.current) {
@@ -23,11 +21,13 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
 
             mapRef.current.on('moveend', update);
 
-            const geoJson = L.geoJson(null, {
+            borderSignsRef.current = L.layerGroup(null).addTo(mapRef.current);
+
+            const clusterGeoJson = L.geoJson(null, {
                 pointToLayer: createClusterIcon,
                 onEachFeature: onEachFeature
             });
-            markersRef.current = geoJson.addTo(mapRef.current)
+            markersRef.current = clusterGeoJson.addTo(mapRef.current)
 
             markersRef.current.on('click', (e) => {
                 if (e.layer.feature.properties.cluster_id) {
@@ -49,14 +49,16 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
         workerRef.current = new Worker(new URL('./worker.js', import.meta.url), {type: 'module'})
 
         workerRef.current.onmessage = function (e) {
-            if (e.data.ready) {
+            if (e.data.clustersReady || e.data.borderSignsReady) {
                 ready = true;
                 update();
             } else if (e.data.expansionZoom) {
                 mapRef.current.flyTo(e.data.center, e.data.expansionZoom);
             } else {
                 markersRef.current.clearLayers();
-                markersRef.current.addData(e.data);
+                markersRef.current.addData(e.data.clusters);
+                borderSignsRef.current.clearLayers();
+                e.data.borderSigns.forEach(borderSign => borderSignsRef.current.addLayer(createBorderSignIcon(borderSign)));
             }
         };
 
@@ -93,6 +95,14 @@ function DataMap({arrests, selectedArrest, onSelectArrest, borderSigns}) {
         });
 
         return L.marker(latlng, {icon});
+    }
+
+    function createBorderSignIcon(borderSign) {
+        const icon = L.divIcon({
+            html: `<span>${borderSign.title}</span>`,
+            className: `border-sign`
+        });
+        return L.marker([borderSign.lat, borderSign.lng], {icon, interactive: false})
     }
 
     function onEachFeature(feature, layer) {
