@@ -55,8 +55,16 @@ function DataMap() {
             } else if (e.data.expansionZoom) {
                 mapRef.current.flyTo(e.data.center, e.data.expansionZoom);
             } else {
-                markersRef.current.clearLayers();
-                markersRef.current.addData(e.data.clusters);
+                const clusters = e.data.clusters;
+                for (const layer of markersRef.current.getLayers()) {
+                    if (!clusters.get(layer.feature.id)) {
+                        markersRef.current.removeLayer(layer);
+                    }
+                }
+                markersRef.current.eachLayer((layer) => {
+                    clusters.delete(layer.feature.id)
+                });
+                markersRef.current.addData(Array.from(clusters.values()));
                 borderSignsRef.current.clearLayers();
                 e.data.borderSigns.forEach(borderSign => borderSignsRef.current.addLayer(createBorderSignIcon(borderSign)));
             }
