@@ -14,9 +14,13 @@ self.onmessage = function (e) {
                 center: e.data.center
             });
         } else {
-            const message = {borderSigns: [], clusters: []};
+            const message = {borderSigns: [], clusters: new Map()};
             if (clusterIndex) {
-                message.clusters = clusterIndex.getClusters(e.data.bbox, e.data.zoom);
+                const clusters = clusterIndex.getClusters(e.data.bbox, e.data.zoom);
+                //TODO: Add id to individual features (not clusters)
+                for (const cluster of clusters) {
+                    message.clusters.set(cluster.id, cluster);
+                }
             }
 
             if (borderSignIndex && e.data.zoom > 13) {
