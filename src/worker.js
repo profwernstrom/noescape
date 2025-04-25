@@ -8,25 +8,31 @@ let borderSigns = [];
 
 self.onmessage = function (e) {
     if (e.data) {
+        const supercluster = clusterIndex[e.data.period];
+        if (!supercluster) return;
         if (e.data.getClusterExpansionZoom) {
             postMessage({
-                expansionZoom: clusterIndex[e.data.period].getClusterExpansionZoom(e.data.getClusterExpansionZoom),
+                expansionZoom: supercluster.getClusterExpansionZoom(e.data.getClusterExpansionZoom),
                 center: e.data.center
             });
         } else {
+            // Expand bbox beyond visible screen to reduce flickering while dragging
+            const [minLng, minLat, maxLng, maxLat] = e.data.bbox;
+            const width = maxLng - minLng;
+            const height = maxLat - minLat;
+            const bbox = [minLng - width / 2, minLat - height / 2, maxLng + width / 2, maxLat + height / 2]
+
             const message = {borderSigns: [], clusters: new Map()};
             if (clusterIndex) {
                 console.log(e.data);
-                const clusters = (clusterIndex[e.data.period] ?? []).getClusters(e.data.bbox, e.data.zoom);
-                //TODO: Add id to individual features (not clusters)
+                const clusters = supercluster.getClusters(bbox, e.data.zoom);
                 for (const cluster of clusters) {
                     message.clusters.set(cluster.id, cluster);
                 }
             }
 
             if (borderSignIndex && e.data.zoom > 13) {
-                const [minLng, minLat, maxLng, maxLat] = e.data.bbox;
-                const foundIds = borderSignIndex.range(minLng, minLat, maxLng, maxLat);
+                const foundIds = borderSignIndex.range(bbox[0], bbox[1], bbox[2], bbox[3]);
                 message.borderSigns = foundIds.map(i => borderSigns[i]);
             }
             postMessage(message);
