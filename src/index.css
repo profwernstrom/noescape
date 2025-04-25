@@ -206,7 +206,7 @@ header {
 
         .accordion-body {
             display: none;
-            height: calc(100vh - var(--page-header-height) - var(--accordion-header-height) * 3);
+            height: calc(100vh - var(--page-header-height) - var(--accordion-header-height) * 2);
 
             &.open {
                 display: block;
