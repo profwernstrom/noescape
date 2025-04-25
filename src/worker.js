@@ -10,13 +10,14 @@ self.onmessage = function (e) {
     if (e.data) {
         if (e.data.getClusterExpansionZoom) {
             postMessage({
-                expansionZoom: clusterIndex.getClusterExpansionZoom(e.data.getClusterExpansionZoom),
+                expansionZoom: clusterIndex[e.data.period].getClusterExpansionZoom(e.data.getClusterExpansionZoom),
                 center: e.data.center
             });
         } else {
             const message = {borderSigns: [], clusters: new Map()};
             if (clusterIndex) {
-                const clusters = clusterIndex.getClusters(e.data.bbox, e.data.zoom);
+                console.log(e.data);
+                const clusters = (clusterIndex[e.data.period] ?? []).getClusters(e.data.bbox, e.data.zoom);
                 //TODO: Add id to individual features (not clusters)
                 for (const cluster of clusters) {
                     message.clusters.set(cluster.id, cluster);
@@ -38,13 +39,36 @@ fetch('/data/arrests.json')
     .then(response => response.json())
     .then(geojson => {
         console.log(`loaded ${geojson.features.length} points JSON in ${(Date.now() - now) / 1000}s`);
-        const supercluster = new Supercluster({
+        const options = {
             log: true,
             radius: 48,
             extent: 256,
             maxZoom: 17
-        });
-        clusterIndex = supercluster.load(geojson.features);
+        };
+        const last12months = new Supercluster(options).load(geojson.features.filter(feature => {
+            const arrestDate = new Date(feature.properties.date);
+            const sixMonthsAgo = new Date();
+            sixMonthsAgo.setMonth(new Date().getMonth() - 6);
+            return arrestDate >= sixMonthsAgo;
+        }));
+        const last3months = new Supercluster(options).load(geojson.features.filter(feature => {
+            const arrestDate = new Date(feature.properties.date);
+            const threeMonthsAgo = new Date();
+            threeMonthsAgo.setMonth(new Date().getMonth() - 3);
+            return arrestDate >= threeMonthsAgo;
+        }));
+        const year2025 = new Supercluster(options).load(geojson.features.filter(feature => feature.properties.date.startsWith('2025')));
+        const year2024 = new Supercluster(options).load(geojson.features.filter(feature => feature.properties.date.startsWith('2024')));
+        const year2023 = new Supercluster(options).load(geojson.features.filter(feature => feature.properties.date.startsWith('2023')));
+        const year2022 = new Supercluster(options).load(geojson.features.filter(feature => feature.properties.date.startsWith('2022')));
+        clusterIndex = {
+            last12months,
+            last3months,
+            year2025,
+            year2024,
+            year2023,
+            year2022,
+        };
         postMessage({clustersReady: true});
     })
     .catch(error => console.error('Error fetching JSON:', error));

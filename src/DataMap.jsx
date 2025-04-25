@@ -1,8 +1,9 @@
-import {useEffect, useRef} from "react";
+import {use, useEffect, useRef, useState} from "react";
 import L from "leaflet";
 import {formatDate} from "./util.js";
 
 let ready = false;
+let period = 'last12months'
 
 function DataMap() {
     const mapRef = useRef(null);
@@ -19,6 +20,64 @@ function DataMap() {
                 attribution: '&copy; OpenStreetMap contributors',
             }).addTo(mapRef.current);
 
+            // Define a new control class
+            L.Control.CustomText = L.Control.extend({
+                options: {
+                    position: 'topright',
+                    options: {
+                        'last12months': 'Останні 12 місяців',
+                        'last3months': 'Останні 3 місяця',
+                        'year2025': '2025 рік',
+                        'year2024': '2024 рік',
+                        'year2023': '2023 рік',
+                        'year2022': '2022 рік',
+                    },
+                    defaultOption: 'Останні 12 місяців',
+                    onSelect: function(value) {
+                        // Define your custom action when an option is selected
+                        console.log('Selected value:', value);
+                        period = value;
+                        update();
+                    }
+                },
+
+                onAdd: function (map) {
+                    const container = L.DomUtil.create('div', 'leaflet-control-select');
+                    container.style.backgroundColor = 'white';
+                    container.style.padding = '5px';
+                    L.DomEvent.disableClickPropagation(container); // Prevent map clicks when interacting with the control
+
+                    this._select = L.DomUtil.create('select', null, container);
+
+                    for (const key in this.options.options) {
+                        if (this.options.options.hasOwnProperty(key)) {
+                            const option = document.createElement('option');
+                            option.text = this.options.options[key];
+                            option.value = key;
+                            this._select.appendChild(option);
+                        }
+                    }
+
+                    if (this.options.defaultOption && this.options.options.hasOwnProperty(this.options.defaultOption)) {
+                        this._select.value = this.options.options[this.options.defaultOption];
+                        this.options.onSelect(this._select.value); // Trigger the onSelect for the default value
+                    }
+
+                    L.DomEvent.on(this._select, 'change', this._onSelectChange, this);
+
+                    return container;
+                },
+
+                _onSelectChange: function (e) {
+                    var selectedValue = e.target.value;
+                    this.options.onSelect(selectedValue);
+                }
+            });
+
+            // Add the custom control to the map
+            var customTextControl = new L.Control.CustomText({ text: 'Hello Leaflet!' });
+            mapRef.current.addControl(customTextControl);
+
             mapRef.current.on('moveend', update);
 
             borderSignsRef.current = L.layerGroup(null).addTo(mapRef.current);
@@ -33,7 +92,8 @@ function DataMap() {
                 if (e.layer.feature.properties.cluster_id) {
                     workerRef.current.postMessage({
                         getClusterExpansionZoom: e.layer.feature.properties.cluster_id,
-                        center: e.latlng
+                        center: e.latlng,
+                        period: period,
                     });
                 }
             });
@@ -80,7 +140,8 @@ function DataMap() {
         const bounds = mapRef.current.getBounds();
         workerRef.current.postMessage({
             bbox: [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()],
-            zoom: mapRef.current.getZoom()
+            zoom: mapRef.current.getZoom(),
+            period: period,
         });
     }
 
