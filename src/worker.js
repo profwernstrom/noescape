@@ -61,6 +61,7 @@ fetch('/data/arrests.json')
         const year2024 = new Supercluster(options).load(geojson.features.filter(feature => feature.properties.date.startsWith('2024')));
         const year2023 = new Supercluster(options).load(geojson.features.filter(feature => feature.properties.date.startsWith('2023')));
         const year2022 = new Supercluster(options).load(geojson.features.filter(feature => feature.properties.date.startsWith('2022')));
+        const all = new Supercluster(options).load(geojson.features);
         clusterIndex = {
             last12months,
             last3months,
@@ -68,6 +69,7 @@ fetch('/data/arrests.json')
             year2024,
             year2023,
             year2022,
+            all,
         };
         postMessage({clustersReady: true});
     })

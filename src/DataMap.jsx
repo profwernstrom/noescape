@@ -31,6 +31,7 @@ function DataMap() {
                         'year2024': '2024 рік',
                         'year2023': '2023 рік',
                         'year2022': '2022 рік',
+                        'all': 'З початку 2022',
                     },
                     defaultOption: 'Останні 12 місяців',
                     onSelect: function(value) {
