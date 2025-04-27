@@ -1,6 +1,6 @@
-import {useEffect, useRef} from "react";
-import L from "leaflet";
-import {formatDate} from "./util.js";
+import {useEffect, useRef} from 'react';
+import L from 'leaflet';
+import {formatDate} from './util.js';
 
 let ready = false;
 let period = 'last12months'

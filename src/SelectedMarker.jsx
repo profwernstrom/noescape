@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
-import {AdvancedMarker, InfoWindow, Pin, useAdvancedMarkerRef, useMap} from "@vis.gl/react-google-maps";
-import {formatDate} from "./util.js";
+import {useEffect, useState} from 'react';
+import {AdvancedMarker, InfoWindow, Pin, useAdvancedMarkerRef, useMap} from '@vis.gl/react-google-maps';
+import {formatDate} from './util.js';
 
 function SelectedMarker({selectedArrest}) {
     const [infoOpen, setInfoOpen] = useState(false);

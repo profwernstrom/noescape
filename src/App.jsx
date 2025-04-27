@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import PageHeader from './PageHeader.jsx';
-import Sidebar from './Sidebar';
-import DataMap from "./DataMap.jsx";
+import Sidebar from './Sidebar.jsx';
+import DataMap from './DataMap.jsx';
 
 function App() {
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);

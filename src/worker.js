@@ -1,5 +1,5 @@
-import Supercluster from "supercluster";
-import KDBush from "kdbush";
+import Supercluster from 'supercluster';
+import KDBush from 'kdbush';
 
 const now = Date.now();
 let clusterIndex;
