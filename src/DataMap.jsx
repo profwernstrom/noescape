@@ -27,7 +27,7 @@ function DataMap({sidebarOpen}) {
             }).addTo(mapRef.current);
 
             // Define a new control class
-            L.Control.CustomText = L.Control.extend({
+            L.Control.PeriodSelector = L.Control.extend({
                 options: {
                     position: 'topright',
                     options: {
@@ -76,13 +76,13 @@ function DataMap({sidebarOpen}) {
                 },
 
                 _onSelectChange: function (e) {
-                    var selectedValue = e.target.value;
+                    const selectedValue = e.target.value;
                     this.options.onSelect(selectedValue);
                 }
             });
 
             // Add the custom control to the map
-            var customTextControl = new L.Control.CustomText({text: 'Hello Leaflet!'});
+            const customTextControl = new L.Control.PeriodSelector();
             mapRef.current.addControl(customTextControl);
 
             mapRef.current.on('moveend', update);
