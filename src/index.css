@@ -30,15 +30,10 @@ header {
     align-items: center;
 
     & h3 {
-        font-size: 14px;
+        font-size: 16px;
         padding-left: 12px;
     }
-
     .short-text {
-        display: block;
-    }
-
-    .full-text {
         display: none;
     }
 }
@@ -64,6 +59,7 @@ header {
         padding: 8px 8px;
         text-decoration: none;
         color: black;
+        font-size: 15px;
 
         &:visited {
             text-decoration: none;
@@ -78,14 +74,11 @@ header {
 .sidebar {
     position: fixed;
     top: var(--page-header-height);
-    left: -380px;
+    left: 0;
     width: 380px;
-    max-width: 90vw;
     height: calc(100vh - var(--page-header-height));
-    transition: left 0.3s ease;
+    transition: left 5s ease-in-out;
     font-size: 13px;
-    background-color: white;
-    z-index: 20; /* above Google Map */
 
     & form {
         flex-grow: 0;
@@ -138,10 +131,6 @@ header {
 }
 
 .sidebar-open {
-    .sidebar {
-        left: 0;
-    }
-
     .main-content {
         margin-left: 380px;
     }
@@ -235,44 +224,39 @@ header {
 /*
   Media Queries
 */
-@media (min-width: 768px) {
-    .sidebar-open .sidebar {
-        left: 0;
+@media screen and (max-width: 768px) {
+    .sidebar-open .main-content {
+        display: none;
+        margin: 0;
     }
 
-    .sidebar-open .main-content {
-        margin-left: 380px;
-        transition-delay: 0.3s;
+    .sidebar-open .sidebar {
+        width: 100%;
     }
 
     header {
         & h3 {
             font-size: 16px;
         }
+
+        .short-text {
+            display: block;
+        }
+
+        .full-text {
+            display: none;
+        }
     }
 
     .sidebar {
         font-size: 15px;
-        width: 380px;
     }
 }
-
-@media (min-width: 900px) {
-    header {
-        .short-text {
-            display: none;
-        }
-
-        .full-text {
-            display: block;
-        }
-    }
-}
-
 
 .marker-cluster-small {
     background-color: rgba(61, 61, 255, 0.6);
 }
+
 .marker-cluster-small div {
     background-color: rgba(0, 0, 255, 0.8);
 }
@@ -280,6 +264,7 @@ header {
 .marker-cluster-large {
     background-color: rgba(255, 61, 61, 0.6);
 }
+
 .marker-cluster-large div {
     background-color: rgba(200, 0, 0, 0.8);
 }
@@ -288,6 +273,7 @@ header {
     background-clip: padding-box;
     border-radius: 20px;
 }
+
 .marker-cluster div {
     width: 30px;
     height: 30px;
@@ -299,6 +285,7 @@ header {
     border-radius: 15px;
     font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+
 .marker-cluster span {
     line-height: 30px;
 }
