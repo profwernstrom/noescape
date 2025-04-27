@@ -24,7 +24,7 @@ function App() {
             <div className={sidebarOpen ? 'sidebar-open' : ''}>
                 <Sidebar/>
                 <div className="main-content">
-                    <DataMap/>
+                    <DataMap sidebarOpen={sidebarOpen}/>
                 </div>
             </div>
         </div>

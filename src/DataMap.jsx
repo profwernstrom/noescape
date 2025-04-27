@@ -1,16 +1,22 @@
-import {use, useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import L from "leaflet";
 import {formatDate} from "./util.js";
 
 let ready = false;
 let period = 'last12months'
 
-function DataMap() {
+function DataMap({sidebarOpen}) {
     const mapRef = useRef(null);
     const mapContainerRef = useRef(null);
     const workerRef = useRef(null);
     const markersRef = useRef(null);
     const borderSignsRef = useRef(null);
+
+    useEffect(() => {
+        if (mapRef.current) {
+            mapRef.current.invalidateSize();
+        }
+    }, [sidebarOpen]);
 
     useEffect(() => {
         if (!mapRef.current) {
@@ -34,7 +40,7 @@ function DataMap() {
                         'all': 'З початку 2022',
                     },
                     defaultOption: 'Останні 12 місяців',
-                    onSelect: function(value) {
+                    onSelect: function (value) {
                         // Define your custom action when an option is selected
                         console.log('Selected value:', value);
                         period = value;
@@ -76,7 +82,7 @@ function DataMap() {
             });
 
             // Add the custom control to the map
-            var customTextControl = new L.Control.CustomText({ text: 'Hello Leaflet!' });
+            var customTextControl = new L.Control.CustomText({text: 'Hello Leaflet!'});
             mapRef.current.addControl(customTextControl);
 
             mapRef.current.on('moveend', update);
