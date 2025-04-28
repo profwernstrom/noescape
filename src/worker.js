@@ -24,7 +24,6 @@ self.onmessage = function (e) {
 
             const message = {borderSigns: [], clusters: new Map()};
             if (clusterIndex) {
-                console.log(e.data);
                 const clusters = supercluster.getClusters(bbox, e.data.zoom);
                 for (const cluster of clusters) {
                     message.clusters.set(cluster.id, cluster);

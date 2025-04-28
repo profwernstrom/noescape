@@ -42,7 +42,6 @@ function DataMap({sidebarOpen}) {
                     defaultOption: 'Останні 12 місяців',
                     onSelect: function (value) {
                         // Define your custom action when an option is selected
-                        console.log('Selected value:', value);
                         period = value;
                         update();
                     }
