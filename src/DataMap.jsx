@@ -22,10 +22,6 @@ function DataMap({sidebarOpen}) {
         if (!mapRef.current) {
             mapRef.current = L.map(mapContainerRef.current).setView([48.5, 28.0], 7);
 
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                attribution: '&copy; OpenStreetMap contributors',
-            }).addTo(mapRef.current);
-
             // Define a new control class
             L.Control.PeriodSelector = L.Control.extend({
                 options: {
@@ -83,6 +79,22 @@ function DataMap({sidebarOpen}) {
             // Add the custom control to the map
             const customTextControl = new L.Control.PeriodSelector();
             mapRef.current.addControl(customTextControl);
+
+            const openstreetmapTLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution: '&copy; OpenStreetMap',
+            });
+            const esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: '&copy; Esri'
+            });
+
+            openstreetmapTLayer.addTo(mapRef.current);
+            esriLayer.addTo(mapRef.current);
+
+            L.control.layers({
+                    "Супутник": esriLayer,
+                    "Мапа": openstreetmapTLayer,
+                }
+            ).addTo(mapRef.current);
 
             mapRef.current.on('moveend', update);
 
