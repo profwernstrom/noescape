@@ -76,6 +76,9 @@ const Sidebar = () => {
                             <a href="https://t.me/profwernstrom" target="_blank" rel="nofollow">
                                 Звʼязатися з автором по Telegram
                             </a>
+                            <a href="https://old.noescape.fyi">
+                                Стара версія мапи
+                            </a>
                         </div>
                     </div>
                 </div>
