@@ -64,8 +64,8 @@ const Sidebar = () => {
                             <a href="data/text.zip" target="_blank" rel="nofollow" download>
                                 Тексти всіх судових рішень
                             </a>
-                            <a href="data/arrests.kmz" target="_blank" rel="nofollow" download>
-                                KML файл з останніми даннимі для завантаження на іншу карту
+                            <a href="data/arrests-latest.kmz" target="_blank" rel="nofollow" download>
+                                KML файл з останніми даними для завантаження на іншу карту
                             </a>
                             <a href="data/arrests-kml.zip" target="_blank" rel="nofollow" download>
                                 Всі KML файли для завантаження на іншу карту
