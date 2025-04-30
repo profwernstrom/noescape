@@ -301,3 +301,8 @@ header {
 .border-sign span {
     background-color: lightgray;
 }
+
+.leaflet-popup-content {
+    max-height: calc(100vh - var(--page-header-height) * 4);
+    overflow-y: auto;
+}

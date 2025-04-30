@@ -204,12 +204,10 @@ function DataMap({sidebarOpen}) {
                 .join('\n');
 
             layer.bindPopup(
-                `<div>
-                Приблизне місце затримання<br/><br/>
+                `Приблизне місце затримання<br/><br/>
                 Дата затримання:&nbsp;${formatDate(feature.properties.date) ?? '?'}<br/>
                 Відстань до кордону:&nbsp;${feature.properties.distance ?? '?'} м<br/>
-                ${casesHtml}
-                </div>`);
+                ${casesHtml}`);
         }
     }
 
