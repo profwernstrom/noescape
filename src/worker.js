@@ -52,9 +52,9 @@ fetch('/data/arrests.json')
         };
         const last12months = new Supercluster(options).load(geojson.features.filter(feature => {
             const arrestDate = new Date(feature.properties.date);
-            const sixMonthsAgo = new Date();
-            sixMonthsAgo.setMonth(new Date().getMonth() - 6);
-            return arrestDate >= sixMonthsAgo;
+            const twelveMonthsAgo = new Date();
+            twelveMonthsAgo.setMonth(new Date().getMonth() - 12);
+            return arrestDate >= twelveMonthsAgo;
         }));
         const last3months = new Supercluster(options).load(geojson.features.filter(feature => {
             const arrestDate = new Date(feature.properties.date);
