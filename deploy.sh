@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Generate data files
+python scripts/generate_data.py
+
+# Upload generated data to the server
+scp -r ./data noescape.fyi:/var/noescape/
+
 # Build doker image
 docker build . -t localhost:32000/noescape:latest
 
