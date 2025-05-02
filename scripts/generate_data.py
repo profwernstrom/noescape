@@ -3,6 +3,9 @@ import json
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+from datetime import datetime
+
+import xlsxwriter
 
 
 def read_court_cases(input_file):
@@ -18,17 +21,15 @@ def read_court_cases(input_file):
                 "arrestDate": row["arrestDate"].strip() or None,
                 "arrestTime": row["arrestTime"].strip() or None,
                 "publicationDate": row["publicationDate"].strip() or None,
-                "locality": {
-                    "settlement": row["settlement"].strip() or None,
-                    "gromada": row["gromada"].strip() or None,
-                    "rayon": row["rayon"].strip() or None,
-                    "oblast": row["oblast"].strip() or None
-                },
+                "settlement": row["settlement"].strip() or None,
+                "gromada": row["gromada"].strip() or None,
+                "rayon": row["rayon"].strip() or None,
+                "oblast": row["oblast"].strip() or None,
                 "fine": row["fine"].strip() or None,
                 "distance": row["distance"].strip() or None,
                 "guard": row["guard"].strip() or None,
                 "group": row["group"].strip() or None,
-                "position": row["position"].strip() or None
+                "position": row["position"].strip() or None,
             }
             court_cases.append(court_case)
     return court_cases
@@ -100,6 +101,71 @@ def write_json(file, data):
     print("Created file", file)
 
 
+def get_year(court_case):
+    arrest_date = court_case.get("arrestDate")
+    if arrest_date is not None:
+        return int(arrest_date[:4])
+    registration_date = court_case.get("registrationDate")
+    if registration_date is not None:
+        return int(registration_date[:4])
+    publication_date = court_case.get("publicationDate")
+    if publication_date is not None:
+        return int(publication_date[:4])
+    return None
+
+
+def generate_excel_file(output_file):
+    workbook = xlsxwriter.Workbook(output_file)
+
+    for year in range(2022, datetime.now().year + 1):
+        worksheet = workbook.add_worksheet(name=str(year))
+
+        selected_cases = [court_case for court_case in all_court_cases if get_year(court_case) == year]
+
+        header_row = ["Кордон", "Прикордонний знак", "Дата затримання", "Час затримання", "Дата оприлюднення",
+                      "Відстань до кордону", "Прикордонний наряд", "Населенний пункт", "Громада", "Район", "Область",
+                      "Штраф, грн", "Номер справи", "Координати", "Посилання"]
+        worksheet.write_row(0, 0, header_row)
+        worksheet.freeze_panes(1, 0)
+
+        col_widths = [0] * len(header_row)
+
+        for col_index, value in enumerate(header_row):
+            col_widths[col_index] = max(col_widths[col_index], len(value) + 2)
+
+        for row_index, court_case in enumerate(selected_cases):
+            position = court_case.get("position")
+            if position is not None:
+                position = ",".join(f"{float(v):.5f}" for v in position.split(","))
+
+            data_row = [court_case.get("country"),
+                        court_case.get("borderSign"),
+                        court_case.get("arrestDate"),
+                        court_case.get("arrestTime"),
+                        court_case.get("publicationDate"),
+                        court_case.get("distance"),
+                        court_case.get("guard"),
+                        court_case.get("settlement"),
+                        court_case.get("gromada"),
+                        court_case.get("rayon"),
+                        court_case.get("oblast"),
+                        court_case.get("fine"),
+                        court_case.get("caseNumber"),
+                        position,
+                        "https://reyestr.court.gov.ua/Review/" + court_case["caseId"],
+                        ]
+            for col_index, value in enumerate(data_row):
+                col_widths[col_index] = max(col_widths[col_index], len(str(value)))
+            worksheet.write_row(row_index + 1, 0, data_row)
+
+        worksheet.autofilter(0, 0, len(selected_cases), len(header_row) - 1)
+        # Set column widths
+        for col_index, width in enumerate(col_widths):
+            worksheet.set_column(col_index, col_index, width + 1)
+
+    workbook.close()
+
+
 # Load default .env file
 load_dotenv(dotenv_path=".env")
 # Load .env.local if exists, overriding values from .env
@@ -124,3 +190,5 @@ geocoded_arrests = collect_arrests(geocoded_cases)
 # Generate and write geojson file with arrests
 arrests_geojson = generate_arrests_geojson(geocoded_arrests)
 write_json(output_dir / "arrests.json", arrests_geojson)
+
+generate_excel_file(output_dir / "спроби_перетинання_кордону.xlsx")
