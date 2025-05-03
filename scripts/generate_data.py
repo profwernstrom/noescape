@@ -1,14 +1,19 @@
 import csv
+import io
 import json
 import os
-import xlsxwriter
+import zipfile
 from collections import defaultdict
 from datetime import datetime
 from math import ceil, sqrt
 from pathlib import Path
+
+import xlsxwriter
 from dotenv import load_dotenv
 
 
+# Read cases from a tab-separated data file
+# The first row of the file contains column headers
 def read_court_cases(input_file):
     court_cases = []
     with input_file.open(newline='', encoding='utf-8') as input:
@@ -36,6 +41,7 @@ def read_court_cases(input_file):
     return court_cases
 
 
+# Group court cases into arrests by date, time and position
 def collect_arrests(court_cases):
     arrests = {}
     for court_case in court_cases:
@@ -54,9 +60,13 @@ def collect_arrests(court_cases):
             arrest["cases"].append(court_case)
         if arrest.get("distance") is None and court_case.get("distance") is not None:
             arrest["distance"] = int(court_case["distance"])
-    return list(arrests.values())
+
+    result = list(arrests.values())
+    return sorted(result, key=lambda item: (item["date"], str(item["time"]), item["id"]))
 
 
+# Generate GeoJSON file with arrests
+# The file used to display markers on the map
 def generate_arrests_geojson(arrests):
     features = []
     for arrest in arrests:
@@ -95,6 +105,7 @@ def generate_arrests_geojson(arrests):
     return geojson
 
 
+# Serialize data to json and write to file
 def write_json(file, data):
     with file.open("w", encoding="utf-8") as out:
         # Generate json without indentation and spaces after comma and colon
@@ -102,6 +113,8 @@ def write_json(file, data):
     print("Created file", file)
 
 
+# Get year of the arrest
+# if arrest date is missing, fall back to court case date
 def get_year(court_case):
     arrest_date = court_case.get("arrestDate")
     if arrest_date is not None:
@@ -115,13 +128,14 @@ def get_year(court_case):
     return None
 
 
-def generate_excel_file(output_file):
+# Generate Excel file with all court cases
+def generate_excel_file(output_file, court_cases):
     workbook = xlsxwriter.Workbook(output_file)
 
     for year in range(2022, datetime.now().year + 1):
         worksheet = workbook.add_worksheet(name=str(year))
 
-        selected_cases = [court_case for court_case in all_court_cases if get_year(court_case) == year]
+        selected_cases = [court_case for court_case in court_cases if get_year(court_case) == year]
 
         header_row = ["Кордон", "Прикордонний знак", "Дата затримання", "Час затримання", "Дата оприлюднення",
                       "Відстань до кордону", "Прикордонний наряд", "Населенний пункт", "Громада", "Район", "Область",
@@ -188,9 +202,6 @@ def distribute_same_positions(arrests):
     for position, position_arrests in position_map.items():
         side = int(ceil(sqrt(len(position_arrests))))
 
-        # Sort arrests by date, to avoid gaps between markers when filtered by period
-        position_arrests.sort(key=lambda a: (a["date"]))
-
         for i, arrest in enumerate(position_arrests):
             coords = list(map(float, arrest["position"].split(",")))
             row = i // side
@@ -204,6 +215,62 @@ def distribute_same_positions(arrests):
     # Sort arrests by caseId to have predicatable order, so that it is easier to diff
     result.sort(key=lambda a: (a["cases"][0]["caseId"]))
     return result
+
+
+# Generate KML with all arrests
+# The KML contains placemarks with arrests, grouped into folders by year and month
+def generate_kml(arrests):
+    grouped_by_year_month = defaultdict(list)
+    for arrest in arrests:
+        year_month = arrest["date"][:7]
+        grouped_by_year_month[year_month].append(arrest)
+    year_months = list(sorted(grouped_by_year_month.keys()))
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">',
+        '<Document>'
+    ]
+    for year_month in year_months:
+        month_arrests = grouped_by_year_month[year_month]
+
+        lines.append('<Folder>')
+        lines.append('<name>' + year_month + '</name>')
+        lines.append('<open>0</open>')
+
+        for arrest in month_arrests:
+            arrest_date_time = arrest['date']
+            if arrest.get('time'):
+                arrest_date_time += ' ' + arrest['time']
+            lines.append('<Placemark>')
+            lines.append('<name>' + arrest_date_time + '</name>')
+            lines.append('<Style><LabelStyle><scale>0.8</scale></LabelStyle></Style>')
+            if year_month not in year_months[-3:]:
+                # Hide markers by default, so that the application where the file is imported, won't die
+                lines.append("<visibility>0</visibility>")
+            lines.append('<description>')
+            for i, court_case in enumerate(arrest["cases"]):
+                line = f'<a href="https://reyestr.court.gov.ua/Review/{court_case["caseId"]}">Справа №{court_case["caseNumber"]}</a>'
+                if i > 0:
+                    line = '<br/>' + line
+                lines.append(line)
+            lines.append('</description>')
+            coords = arrest["position"].split(',')
+            lines.append(f'<Point><coordinates>{coords[1]},{coords[0]}</coordinates></Point>')
+            lines.append('</Placemark>')
+        lines.append('</Folder>')
+    lines.append('</Document>')
+    lines.append('</kml>')
+    return '\n'.join(lines)
+
+
+# Compress KML content into kmz format
+def kmz(content):
+    baos = io.BytesIO()
+    with zipfile.ZipFile(baos, 'w', zipfile.ZIP_DEFLATED) as zos:
+        entry = zipfile.ZipInfo("doc.kml")
+        zos.writestr(entry, content.encode('utf-8'))
+    return baos.getvalue()
 
 
 # Load default .env file
@@ -227,8 +294,16 @@ geocoded_cases = [court_case for court_case in all_court_cases if
 # Group all court cases into arrests by date, time and position
 geocoded_arrests = collect_arrests(geocoded_cases)
 
-# Generate and write geojson file with arrests
-arrests_geojson = generate_arrests_geojson(distribute_same_positions(geocoded_arrests))
-write_json(output_dir / "arrests.json", arrests_geojson)
+# Generate and write KML file with latest arrests
+latest_arrests = geocoded_arrests[-9000:]
+latest_kml_file = output_dir / "arrests-latest.kmz"
+latest_kml_file.write_bytes(kmz(generate_kml(latest_arrests)))
 
-generate_excel_file(output_dir / "спроби_перетинання_кордону.xlsx")
+# Generate and write GeoJSON file with arrests
+arrests_geojson = generate_arrests_geojson(distribute_same_positions(geocoded_arrests))
+arrests_json_file = output_dir / "arrests.json"
+write_json(arrests_json_file, arrests_geojson)
+
+# Generate Excel file with all court cases
+excel_file = output_dir / "спроби_перетинання_кордону.xlsx"
+generate_excel_file(excel_file, all_court_cases)
