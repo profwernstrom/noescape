@@ -266,20 +266,36 @@ def generate_kml(arrests):
 
 # Compress KML content into kmz format
 def kmz(content):
-    baos = io.BytesIO()
-    with zipfile.ZipFile(baos, 'w', zipfile.ZIP_DEFLATED) as zos:
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, 'w', zipfile.ZIP_DEFLATED) as zos:
         entry = zipfile.ZipInfo("doc.kml")
         zos.writestr(entry, content.encode('utf-8'))
-    return baos.getvalue()
+    return buffer.getvalue()
+
+# Create zip archive with all KML files
+def generate_arrests_kml_zip(arrests, output_file):
+    arrest_map = defaultdict(list)
+    for arrest in arrests:
+        date = datetime.fromisoformat(arrest['date'])
+        quarter = (date.month - 1) // 3 + 1
+        date_quarter = str(date.year) + '-Q' + str(quarter)
+        arrest_map[date_quarter].append(arrest)
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, 'w', zipfile.ZIP_DEFLATED) as zos:
+        for date_quarter, arrests in arrest_map.items():
+            entry = zipfile.ZipInfo('arrests-' + date_quarter + '.kmz')
+            data = kmz(generate_kml(arrests))
+            zos.writestr(entry, data)
+    output_file.write_bytes(buffer.getvalue())
 
 
 # Load default .env file
-load_dotenv(dotenv_path=".env")
+load_dotenv(dotenv_path='.env')
 # Load .env.local if exists, overriding values from .env
-load_dotenv(dotenv_path=".env.local", override=True)
+load_dotenv(dotenv_path='.env.local', override=True)
 
-input_file = Path(os.getenv("INPUT_FILE"))
-output_dir = Path(os.getenv("OUTPUT_DIR"))
+input_file = Path(os.getenv('INPUT_FILE'))
+output_dir = Path(os.getenv('OUTPUT_DIR'))
 
 # Ensure output directory exists
 output_dir.mkdir(parents=True, exist_ok=True)
@@ -289,21 +305,24 @@ all_court_cases = read_court_cases(input_file)
 
 # Select court cases that where successfully geocoded
 geocoded_cases = [court_case for court_case in all_court_cases if
-                  court_case["position"] is not None and court_case["arrestDate"] is not None]
+                  court_case['position'] is not None and court_case['arrestDate'] is not None]
 
 # Group all court cases into arrests by date, time and position
 geocoded_arrests = collect_arrests(geocoded_cases)
 
 # Generate and write KML file with latest arrests
 latest_arrests = geocoded_arrests[-9000:]
-latest_kml_file = output_dir / "arrests-latest.kmz"
+latest_kml_file = output_dir / 'arrests-latest.kmz'
 latest_kml_file.write_bytes(kmz(generate_kml(latest_arrests)))
 
 # Generate and write GeoJSON file with arrests
 arrests_geojson = generate_arrests_geojson(distribute_same_positions(geocoded_arrests))
-arrests_json_file = output_dir / "arrests.json"
+arrests_json_file = output_dir / 'arrests.json'
 write_json(arrests_json_file, arrests_geojson)
 
 # Generate Excel file with all court cases
-excel_file = output_dir / "спроби_перетинання_кордону.xlsx"
+excel_file = output_dir / 'спроби_перетинання_кордону.xlsx'
 generate_excel_file(excel_file, all_court_cases)
+
+kml_zip_file = output_dir / 'arrests-kml.zip'
+generate_arrests_kml_zip(geocoded_arrests, kml_zip_file)
