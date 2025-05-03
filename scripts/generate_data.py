@@ -1,11 +1,12 @@
 import csv
 import json
 import os
-from dotenv import load_dotenv
-from pathlib import Path
-from datetime import datetime
-
 import xlsxwriter
+from collections import defaultdict
+from datetime import datetime
+from math import ceil, sqrt
+from pathlib import Path
+from dotenv import load_dotenv
 
 
 def read_court_cases(input_file):
@@ -166,6 +167,45 @@ def generate_excel_file(output_file):
     workbook.close()
 
 
+# Make sure arrests don't step on each other. Add 20 meters space between them.
+def distribute_same_positions(arrests):
+    space_between_positions = 20
+    lat_per_meter = 1.0 / 111320
+    lng_per_meter = 1.0 / 71700
+
+    position_map = {}
+
+    # Group arrests by position
+    for arrest in arrests:
+        position = arrest["position"]
+        if position in position_map:
+            position_map[position].append(arrest)
+        else:
+            position_map[position] = [arrest]
+
+    result = []
+
+    for position, position_arrests in position_map.items():
+        side = int(ceil(sqrt(len(position_arrests))))
+
+        # Sort arrests by date, to avoid gaps between markers when filtered by period
+        position_arrests.sort(key=lambda a: (a["date"]))
+
+        for i, arrest in enumerate(position_arrests):
+            coords = list(map(float, arrest["position"].split(",")))
+            row = i // side
+            col = i % side
+            lat = coords[0] + (row - side / 2.0) * lat_per_meter * space_between_positions
+            lng = coords[1] + (col - side / 2.0) * lng_per_meter * space_between_positions
+            new_arrest = arrest.copy()
+            new_arrest["position"] = str(lat) + ',' + str(lng)
+            result.append(new_arrest)
+
+    # Sort arrests by caseId to have predicatable order, so that it is easier to diff
+    result.sort(key=lambda a: (a["cases"][0]["caseId"]))
+    return result
+
+
 # Load default .env file
 load_dotenv(dotenv_path=".env")
 # Load .env.local if exists, overriding values from .env
@@ -188,7 +228,7 @@ geocoded_cases = [court_case for court_case in all_court_cases if
 geocoded_arrests = collect_arrests(geocoded_cases)
 
 # Generate and write geojson file with arrests
-arrests_geojson = generate_arrests_geojson(geocoded_arrests)
+arrests_geojson = generate_arrests_geojson(distribute_same_positions(geocoded_arrests))
 write_json(output_dir / "arrests.json", arrests_geojson)
 
 generate_excel_file(output_dir / "спроби_перетинання_кордону.xlsx")
