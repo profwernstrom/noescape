@@ -92,7 +92,6 @@ fetch('/data/signs.txt')
                     title: values[1],
                     lat: parseFloat(values[2]),
                     lng: parseFloat(values[3]),
-                    generated: values[4] === 'true',
                 };
                 index.add(borderSign.lng, borderSign.lat);
                 borderSigns.push(borderSign);
